@@ -1,0 +1,316 @@
+{
+    "navigation": [
+        {
+            "name": "Accueil",
+            "href": "/",
+            "icon": "solar:home-2-bold-duotone",
+            "showLabelOnDesktop": false
+        },
+        {
+            "name": "Mes projets",
+            "href": "/projets",
+            "icon": "solar:folder-bold-duotone",
+            "showLabelOnDesktop": true
+        },
+        {
+            "name": "Contact",
+            "href": "/contact",
+            "icon": "solar:letter-bold-duotone",
+            "showLabelOnDesktop": true
+        }
+    ],
+    "hero": {
+        "title": {
+            "part1": "Transformer vos",
+            "highlight": "idées",
+            "part2": "en solutions web."
+        },
+        "description": "Développeur Full-Stack passionné par l'écosystème web. Je transforme vos idées complexes en applications fiables, scalables et esthétiques.",
+        "codeSnippet": {
+            "fileName": "developer.ts",
+            "statement": "System.out.println(\"Hello World\");",
+            "developer": {
+                "name": "Quentin",
+                "role": "Software Engineer",
+                "skills": [
+                    "React",
+                    "Next.js",
+                    "Node"
+                ],
+                "buildReturn": "Des apps web de qualité."
+            }
+        },
+        "socialLinks": [
+            {
+                "name": "GitHub",
+                "icon": "mdi:github",
+                "href": "https://github.com/"
+            },
+            {
+                "name": "LinkedIn",
+                "icon": "mdi:linkedin",
+                "href": "https://linkedin.com/"
+            },
+            {
+                "name": "Twitter / X",
+                "icon": "ri:twitter-x-fill",
+                "href": "https://twitter.com/"
+            },
+            {
+                "name": "Email",
+                "icon": "solar:letter-bold-duotone",
+                "href": "mailto:contact@example.com"
+            }
+        ]
+    },
+    "expertise": {
+        "sectionLabel": "Expertise",
+        "title": "Stack Technique",
+        "items": [
+            {
+                "id": "frontend",
+                "title": "Frontend",
+                "icon": "solar:monitor-smartphone-bold-duotone",
+                "description": "Création d'interfaces web fluides, réactives et accessibles.",
+                "skills": [
+                    {
+                        "name": "React",
+                        "icon": "logos:react"
+                    },
+                    {
+                        "name": "Next.js",
+                        "icon": "logos:nextjs-icon"
+                    },
+                    {
+                        "name": "Tailwind",
+                        "icon": "logos:tailwindcss-icon"
+                    },
+                    {
+                        "name": "Nuxt.js",
+                        "icon": "logos:nuxt-icon"
+                    },
+                    {
+                        "name": "Angular",
+                        "icon": "logos:angular-icon"
+                    },
+                    {
+                        "name": "Vue.js",
+                        "icon": "logos:vue"
+                    }
+                ]
+            },
+            {
+                "id": "backend",
+                "title": "Backend",
+                "icon": "solar:database-bold-duotone",
+                "description": "Conception d'APIs robustes, bases de données SQL ou NoSQL.",
+                "skills": [
+                    {
+                        "name": "Nest.js",
+                        "icon": "logos:nestjs"
+                    },
+                    {
+                        "name": "Laravel",
+                        "icon": "logos:laravel"
+                    },
+                    {
+                        "name": "PostgreSQL",
+                        "icon": "logos:postgresql"
+                    },
+                    {
+                        "name": "MongoDB",
+                        "icon": "logos:mongodb-icon"
+                    },
+                    {
+                        "name": "MySQL",
+                        "icon": "logos:mysql-icon"
+                    },
+                    {
+                        "name": "PHP",
+                        "icon": "logos:php"
+                    },
+                    {
+                        "name": "Python",
+                        "icon": "logos:python"
+                    }
+                ]
+            },
+            {
+                "id": "devops",
+                "title": "Déploiement",
+                "icon": "solar:cloud-storage-bold-duotone",
+                "description": "CI/CD, conteneurisation et hébergement cloud moderne.",
+                "skills": [
+                    {
+                        "name": "Docker",
+                        "icon": "logos:docker-icon"
+                    },
+                    {
+                        "name": "Vercel",
+                        "icon": "logos:vercel-icon"
+                    },
+                    {
+                        "name": "Git",
+                        "icon": "logos:git-icon"
+                    },
+                    {
+                        "name": "GitHub",
+                        "icon": "mdi:github"
+                    },
+                    {
+                        "name": "GitLab",
+                        "icon": "logos:gitlab"
+                    }
+                ]
+            },
+            {
+                "id": "ui_ux",
+                "title": "Design UI/UX",
+                "icon": "solar:pen-new-round-bold-duotone",
+                "description": "Prototypage Figma et intégration au pixel près.",
+                "skills": [
+                    {
+                        "name": "Figma",
+                        "icon": "logos:figma"
+                    },
+                    {
+                        "name": "Photoshop",
+                        "icon": "logos:adobe-photoshop"
+                    },
+                    {
+                        "name": "Illustrator",
+                        "icon": "logos:adobe-illustrator"
+                    },
+                    {
+                        "name": "Animation",
+                        "icon": "solar:video-frame-bold-duotone"
+                    },
+                    {
+                        "name": "Wireframe",
+                        "icon": "solar:object-scan-bold-duotone"
+                    }
+                ]
+            }
+        ]
+    },
+    "projects": {
+        "sectionLabel": "Portfolio",
+        "title": "Projets Récents",
+        "githubLink": "https://github.com/",
+        "items": [
+            {
+                "id": "project-1",
+                "layout": "large",
+                "title": "E-Commerce React",
+                "year": "2023",
+                "description": "Plateforme avec panier, authentification sécurisée et paiement intégré. Architecture CMS headless offrant des performances de pointe.",
+                "image": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=800",
+                "link": "#",
+                "badge": {
+                    "label": "Production",
+                    "style": "pulse"
+                },
+                "categories": [
+                    {
+                        "name": "Portfolio",
+                        "active": true
+                    },
+                    {
+                        "name": "Projet B2C",
+                        "active": false
+                    }
+                ],
+                "tags": [
+                    "Stripe API",
+                    "Auth.js",
+                    "Sanity CMS"
+                ],
+                "techIcons": [
+                    "devicon:react",
+                    "devicon:nextjs",
+                    "devicon:tailwindcss"
+                ]
+            },
+            {
+                "id": "project-2",
+                "layout": "small",
+                "title": "Dashboard Admin",
+                "year": "2024",
+                "description": "Interface de gestion avec websockets.",
+                "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=600",
+                "link": "#",
+                "categories": [
+                    {
+                        "name": "Portfolio",
+                        "active": true
+                    },
+                    {
+                        "name": "Outil Analytics",
+                        "active": false
+                    }
+                ],
+                "tags": [
+                    "Socket.io",
+                    "Pinia"
+                ],
+                "techIcons": [
+                    "devicon:vuejs",
+                    "devicon:typescript"
+                ]
+            },
+            {
+                "id": "project-3",
+                "layout": "small",
+                "title": "SaaS Freelance",
+                "year": "2024",
+                "description": "Outil de facturation et architecture multi-tenancy.",
+                "image": "https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&q=80&w=600",
+                "link": "#",
+                "badge": {
+                    "label": "Privé",
+                    "icon": "solar:lock-keyhole-minimalistic-bold-duotone"
+                },
+                "categories": [
+                    {
+                        "name": "Portfolio",
+                        "active": true
+                    },
+                    {
+                        "name": "Architecture B2B",
+                        "active": false
+                    }
+                ],
+                "tags": [
+                    "Multi-tenant",
+                    "Redis"
+                ],
+                "techIcons": [
+                    "devicon:nodejs",
+                    "devicon:postgresql"
+                ]
+            },
+            {
+                "id": "project-4",
+                "layout": "large-reverse",
+                "title": "Plateforme IA",
+                "year": "2025",
+                "description": "Intégration poussée de LLMs pour générer des workflows automatisés. Chat temps réel et UI générative.",
+                "image": "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&q=80&w=800",
+                "link": "#",
+                "badge": {
+                    "label": "Nouveau",
+                    "icon": "solar:magic-stick-3-bold-duotone"
+                },
+                "tags": [
+                    "OpenAI",
+                    "Vercel AI",
+                    "Vector DB"
+                ],
+                "techIcons": [
+                    "devicon:typescript",
+                    "devicon:react"
+                ]
+            }
+        ]
+    }
+}
