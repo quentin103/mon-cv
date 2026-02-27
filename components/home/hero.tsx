@@ -13,7 +13,7 @@ export function Hero() {
     ];
 
     return (
-        <section className="relative w-full md:pt-24  flex justify-center overflow-hidden bg-[#050505] text-white">
+        <section className="relative w-full md:pt-10  flex justify-center overflow-hidden bg-[#050505] text-white">
             {/* Abstract Background Effects */}
             <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff08_1px,transparent_1px),linear-gradient(to_bottom,#ffffff08_1px,transparent_1px)] bg-size-[24px_24px] mask-[radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]"></div>
             <div className="absolute top-0 left-1/4 w-96 h-96 bg-[#0A5C36]/30 rounded-full blur-[120px] pointer-events-none"></div>
@@ -29,7 +29,7 @@ export function Hero() {
                         transition={{ duration: 0.8, ease: "easeOut" }}
                         className="space-y-8"
                     >
-                        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-emerald-400 text-sm font-medium backdrop-blur-sm">
+                        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-emerald-400 text-xs md:text-sm font-medium backdrop-blur-sm">
                             <Icon icon="solar:code-square-bold-duotone" className="w-4 h-4 text-emerald-400" />
                             <span>{portfolioData.hero.codeSnippet.statement}</span>
                         </div>
@@ -49,7 +49,7 @@ export function Hero() {
                                 <a key={idx} href={social.href} target="_blank" rel="noopener noreferrer" className="relative group flex items-center justify-center">
                                     <Icon
                                         icon={social.icon}
-                                        className="w-10 h-10 text-emerald-500/60 transition-all duration-300 cursor-pointer group-hover:scale-110 group-hover:text-emerald-400 group-hover:drop-shadow-[0_0_10px_rgba(16,185,129,0.4)]"
+                                        className="w-6 h-6 md:w-10 md:h-10 text-emerald-500/60 transition-all duration-300 cursor-pointer group-hover:scale-110 group-hover:text-emerald-400 group-hover:drop-shadow-[0_0_10px_rgba(16,185,129,0.4)]"
                                     />
                                     {/* Tooltip */}
                                     <span className="absolute -top-12 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0 bg-[#0D1713]/90 backdrop-blur-md border border-white/10 text-slate-200 text-xs py-1.5 px-3 rounded-lg pointer-events-none whitespace-nowrap shadow-[0_8px_32px_rgba(0,0,0,0.4)] z-20">
@@ -95,7 +95,7 @@ export function Hero() {
                             </div>
 
                             {/* Code Content */}
-                            <div className="relative p-6 md:p-8 text-xs md:text-sm font-mono leading-relaxed overflow-hidden min-h-[450px]">
+                            <div className="relative p-6 md:p-8 text-xs md:text-sm font-mono leading-relaxed overflow-hidden min-h-[250px] md:min-h-[400px]">
                                 <AnimatePresence mode="wait">
                                     {activeTab === 'ts' && (
                                         <motion.div

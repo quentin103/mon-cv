@@ -44,22 +44,17 @@
             {
                 "name": "GitHub",
                 "icon": "mdi:github",
-                "href": "https://github.com/"
+                "href": "https://github.com/quentin103"
             },
             {
                 "name": "LinkedIn",
                 "icon": "mdi:linkedin",
-                "href": "https://linkedin.com/"
-            },
-            {
-                "name": "Twitter / X",
-                "icon": "ri:twitter-x-fill",
-                "href": "https://twitter.com/"
+                "href": "https://www.linkedin.com/in/quentin-koffi"
             },
             {
                 "name": "Email",
                 "icon": "solar:letter-bold-duotone",
-                "href": "mailto:contact@example.com"
+                "href": "mailto:koffi.kouamelan.yq@gmail.com"
             }
         ]
     },
@@ -96,6 +91,10 @@
                     {
                         "name": "Vue.js",
                         "icon": "logos:vue"
+                    },
+                    {
+                        "name": "Electron Js",
+                        "icon": "logos:electron"
                     }
                 ]
             },
@@ -201,9 +200,9 @@
             {
                 "id": "project-1",
                 "layout": "large",
-                "title": "E-Commerce React",
-                "year": "2023",
-                "description": "Plateforme avec panier, authentification sécurisée et paiement intégré. Architecture CMS headless offrant des performances de pointe.",
+                "title": "App de gestion entreprise",
+                "year": "2025",
+                "description": "Application de gestion d'entreprise avec gestion des activités, des projets, des finances et des utilisateurs.",
                 "image": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=800",
                 "link": "#",
                 "badge": {
@@ -212,12 +211,8 @@
                 },
                 "categories": [
                     {
-                        "name": "Portfolio",
+                        "name": "Projet B2B",
                         "active": true
-                    },
-                    {
-                        "name": "Projet B2C",
-                        "active": false
                     }
                 ],
                 "tags": [
@@ -246,7 +241,7 @@
                     },
                     {
                         "name": "Outil Analytics",
-                        "active": false
+                        "active": true
                     }
                 ],
                 "tags": [
@@ -256,59 +251,6 @@
                 "techIcons": [
                     "devicon:vuejs",
                     "devicon:typescript"
-                ]
-            },
-            {
-                "id": "project-3",
-                "layout": "small",
-                "title": "SaaS Freelance",
-                "year": "2024",
-                "description": "Outil de facturation et architecture multi-tenancy.",
-                "image": "https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&q=80&w=600",
-                "link": "#",
-                "badge": {
-                    "label": "Privé",
-                    "icon": "solar:lock-keyhole-minimalistic-bold-duotone"
-                },
-                "categories": [
-                    {
-                        "name": "Portfolio",
-                        "active": true
-                    },
-                    {
-                        "name": "Architecture B2B",
-                        "active": false
-                    }
-                ],
-                "tags": [
-                    "Multi-tenant",
-                    "Redis"
-                ],
-                "techIcons": [
-                    "devicon:nodejs",
-                    "devicon:postgresql"
-                ]
-            },
-            {
-                "id": "project-4",
-                "layout": "large-reverse",
-                "title": "Plateforme IA",
-                "year": "2025",
-                "description": "Intégration poussée de LLMs pour générer des workflows automatisés. Chat temps réel et UI générative.",
-                "image": "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&q=80&w=800",
-                "link": "#",
-                "badge": {
-                    "label": "Nouveau",
-                    "icon": "solar:magic-stick-3-bold-duotone"
-                },
-                "tags": [
-                    "OpenAI",
-                    "Vercel AI",
-                    "Vector DB"
-                ],
-                "techIcons": [
-                    "devicon:typescript",
-                    "devicon:react"
                 ]
             }
         ]

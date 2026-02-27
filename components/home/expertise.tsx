@@ -10,7 +10,7 @@ const container = {
         opacity: 1,
         transition: {
             staggerChildren: 0.1,
-            delayChildren: 0.3
+            delayChildren: 0.2
         }
     }
 };
@@ -27,7 +27,7 @@ export function Expertise() {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
+                transition={{ duration: 0.4 }}
                 className="mb-12"
             >
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-[10px] font-semibold uppercase tracking-wider mb-4">

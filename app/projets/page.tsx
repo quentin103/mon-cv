@@ -2,24 +2,9 @@
 
 import { motion } from "framer-motion";
 import { Icon } from "@iconify/react";
-import { ArrowRight } from "lucide-react";
 import portfolioData from "@/data/portfolio.json";
 
-const container = {
-    hidden: { opacity: 0 },
-    show: {
-        opacity: 1,
-        transition: {
-            staggerChildren: 0.1,
-            delayChildren: 0.2
-        }
-    }
-};
 
-const item = {
-    hidden: { opacity: 0, y: 20 },
-    show: { opacity: 1, y: 0, transition: { type: "spring" as const, stiffness: 50 } }
-};
 
 export default function ProjetsPage() {
     const { projects } = portfolioData;
@@ -34,43 +19,27 @@ export default function ProjetsPage() {
             <div className="container max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 relative z-10 w-full">
 
                 {/* Header Section */}
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6 }}
-                    className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6"
-                >
+                <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
                     <div>
                         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-[10px] font-semibold uppercase tracking-wider mb-4">
                             <Icon icon="solar:folder-bold-duotone" className="w-3.5 h-3.5" />
                             {projects.sectionLabel}
                         </div>
-                        <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight text-white mb-2">{projects.title}</h1>
-                        <p className="text-slate-400 max-w-lg mt-4 text-sm md:text-base">
+                        <h1 className="text-2xl md:text-4xl font-extrabold tracking-tight text-white mb-2">{projects.title}</h1>
+                        <p className="text-white max-w-xl mt-4 text-sm md:text-base">
                             Une sélection de mes travaux récents. Parcourez la liste pour découvrir les interfaces, architectures techniques et fonctionnalités que j'ai pu développer.
                         </p>
                     </div>
-                    <a href={projects.githubLink} target="_blank" rel="noopener noreferrer" className="inline-flex w-fit items-center px-6 py-3 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 hover:border-white/20 text-white font-medium transition-all group backdrop-blur-md">
-                        Voir mon GitHub <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                    </a>
-                </motion.div>
+                </div>
 
                 {/* Simple Grid Layout */}
-                <motion.div
-                    variants={container}
-                    initial="hidden"
-                    whileInView="show"
-                    viewport={{ once: true, margin: "-50px" }}
-                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-8"
-                >
+                <div className="grid grid-cols-2 md:grid-cols-2 xl:grid-cols-3 gap-8">
                     {projects.items.map((project, idx) => (
-                        <motion.div
-                            key={project.id}
-                            variants={item}
+                        <div
                             className="group relative flex flex-col bg-[#0a0a0a]/80 border border-white/5 hover:border-emerald-500/30 rounded-[2rem] overflow-hidden transition-all duration-500 hover:shadow-[0_0_30px_rgba(16,185,129,0.15)] backdrop-blur-sm"
                         >
                             {/* Image Header */}
-                            <div className="relative h-60 w-full overflow-hidden bg-white/5 border-b border-white/5 block">
+                            {/* <div className="relative h-60 w-full overflow-hidden bg-white/5 border-b border-white/5 block">
                                 <img
                                     src={project.image}
                                     alt={project.title}
@@ -85,33 +54,47 @@ export default function ProjetsPage() {
                                         {project.badge.label}
                                     </div>
                                 )}
-                            </div>
+                            </div> */}
 
                             {/* Card Content */}
-                            <div className="p-6 md:p-8 flex flex-col flex-1">
+                            <div className="p-4 md:p-5 flex flex-col flex-1">
+
                                 <div className="flex justify-between items-start mb-3">
-                                    <h3 className="text-2xl font-bold text-white group-hover:text-emerald-400 transition-colors">
+                                    <h3 className="text-base md:text-xl font-bold text-white group-hover:text-emerald-400 transition-colors">
                                         {project.title}
                                     </h3>
-                                    <span className="font-mono text-xs text-slate-500 bg-white/5 px-2 py-1 rounded-md border border-white/10">{project.year}</span>
                                 </div>
 
-                                {project.categories && (
-                                    <div className="flex flex-wrap items-center gap-2 mb-4">
-                                        {project.categories.map((cat, i) => (
-                                            <span key={i} className={`text-xs ${cat.active ? 'text-emerald-400 font-medium bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20' : 'text-slate-500'}`}>
-                                                {cat.name}
-                                            </span>
-                                        ))}
-                                    </div>
-                                )}
+                                <div className="mb-2">
+                                    {project.categories && (
+                                        <div className="flex flex-wrap items-center gap-2">
+                                            {project.categories.map((cat, i) => (
+                                                <span key={i} className={`text-xs ${cat.active ? 'text-emerald-400 font-medium bg-emerald-500/10 px-2 py-1 rounded-md border border-emerald-500/20' : 'text-slate-500'}`}>
+                                                    {cat.name}
+                                                </span>
+                                            ))}
+                                        </div>
+                                    )}
+                                </div>
 
-                                <p className="text-slate-400 text-sm leading-relaxed mb-6 flex-1">
+                                <div className="max-w-fit flex items-center gap-2 mb-2">
+                                    {project.badge && (
+                                        <div className={` ${project.badge.style === 'pulse' ? 'bg-black/80 text-white border-white/10' : 'bg-emerald-500/20 text-emerald-400 border-emerald-500/30'} backdrop-blur-md px-3 py-1.5 flex items-center gap-2 rounded-md border text-xs font-mono shadow-lg`}>
+                                            {project.badge.style === 'pulse' && <div className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></div>}
+                                            {project.badge.label}
+                                        </div>
+                                    )}
+                                    <span className="font-mono text-xs text-white bg-white/5 px-2 py-1 rounded-md border border-white/10">{project.year}</span>
+                                </div>
+
+
+
+                                <p className="text-white text-xs md:text-sm leading-relaxed line-clamp-3 mb-4 flex-1">
                                     {project.description}
                                 </p>
 
                                 {/* Tags */}
-                                <div className="flex flex-wrap gap-2 mb-8">
+                                <div className="flex flex-wrap gap-2 mb-4">
                                     {project.tags.map((tag, i) => (
                                         <span key={i} className="px-3 py-1.5 bg-white/5 border border-white/10 rounded-lg text-[10px] sm:text-xs font-medium text-slate-300 group-hover:bg-white/10 transition-colors">
                                             {tag}
@@ -120,7 +103,7 @@ export default function ProjetsPage() {
                                 </div>
 
                                 {/* Footer: Icons & Link */}
-                                <div className="flex items-center justify-between pt-5 border-t border-white/10">
+                                <div className="flex items-center justify-between pt-2 border-t border-white/10">
                                     <div className="flex items-center gap-3">
                                         {project.techIcons.map((icon, i) => (
                                             <Icon key={i} icon={icon} className="w-6 h-6 text-slate-400 grayscale group-hover:grayscale-0 group-hover:text-white transition-all duration-300" />
@@ -131,9 +114,9 @@ export default function ProjetsPage() {
                                     </a>
                                 </div>
                             </div>
-                        </motion.div>
+                        </div>
                     ))}
-                </motion.div>
+                </div>
             </div>
         </main>
     );
