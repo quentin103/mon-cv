@@ -10,35 +10,15 @@ export function FloatingNav() {
 
     return (
         <>
-            {/* --- Navigation Ordinateur (Pillule Flottante en haut) --- */}
-            <div className="hidden sm:flex fixed top-6 left-1/2 -translate-x-1/2 z-50 items-center gap-1.5 p-1.5 rounded-full bg-[#0D1713]/80 border border-white/10 backdrop-blur-md shadow-[0_8px_32px_rgba(0,0,0,0.4)]">
-                {portfolioData.navigation.map((nav, idx) => {
-                    const isActive = pathname === nav.href;
-                    if (!nav.showLabelOnDesktop) {
-                        return (
-                            <Link key={idx} href={nav.href} className={`px-5 py-2.5 flex items-center justify-center rounded-full text-sm font-medium transition-colors ${isActive ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 shadow-[0_0_15px_rgba(16,185,129,0.1)]' : 'text-slate-200 hover:text-white hover:bg-white/10'}`}>
-                                <Icon icon={nav.icon} className="w-5 h-5 mr-2" />  {nav.name}
-                            </Link>
-                        );
-                    }
-                    return (
-                        <Link key={idx} href={nav.href} className={`px-5 py-2.5 flex items-center justify-center rounded-full text-sm font-medium transition-colors ${isActive ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 shadow-[0_0_15px_rgba(16,185,129,0.1)]' : 'text-slate-200 hover:text-white hover:bg-white/10'}`}>
-                            <Icon icon={nav.icon} className="w-5 h-5 mr-2" /> {nav.name}
-                        </Link>
-                    );
-                })}
-            </div>
-
-            {/* --- Navigation Mobile (Dock d'application en bas) --- */}
-            <div className="sm:hidden fixed bottom-4 left-1/2 -translate-x-1/2 w-[calc(100%-3rem)] max-w-sm z-50 flex items-center justify-between px-5 py-3 rounded-2xl bg-[#0D1713]/90 border border-white/10 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.6)]">
+            <div className="fixed top-6 left-1/2 -translate-x-1/2 w-[calc(100%-1.5rem)] sm:w-[calc(100%-3rem)] max-w-md z-50 flex items-center justify-between px-2 py-2 md:px-4 md:py-2 rounded-full bg-[#0D1713]/90 border border-white/10 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.6)]">
                 {portfolioData.navigation.map((nav, idx) => {
                     const isActive = pathname === nav.href;
                     return (
-                        <Link key={idx} href={nav.href} className={`flex items-center gap-1 transition-colors p-2 rounded-xl  ${isActive ? 'text-emerald-400 bg-emerald-500/15 shadow-inner ' : 'text-slate-400 hover:text-white'}`}>
+                        <Link key={idx} href={nav.href} className={`flex items-center gap-1 transition-colors py-2.5 px-3 md:px-4 rounded-full  ${isActive ? 'text-emerald-400 bg-emerald-500/15 shadow-inner ' : 'text-stone-300 hover:text-stone-100'}`}>
                             <div className={`relative rounded-xl transition-all`}>
-                                <Icon icon={nav.icon} className="w-4 h-4 md:w-6 md:h-6 relative z-10" />
+                                <Icon icon={nav.icon} className="w-4 h-4 md:w-5 md:h-5 relative z-10" />
                             </div>
-                            <span className="text-[10px] font-medium tracking-wide">{nav.name}</span>
+                            <span className="text-[10px] md:text-sm text-nowrap font-medium">{nav.name}</span>
                         </Link>
                     );
                 })}

@@ -10,16 +10,16 @@ export default function ProjetsPage() {
     const { projects } = portfolioData;
 
     return (
-        <main className="w-full min-h-screen bg-[#050505] text-white overflow-x-hidden pt-32 pb-24 relative flex justify-center">
+        <main className="w-full min-h-screen bg-[#050505] text-white overflow-x-hidden pt-15 sm:pt-20 relative flex justify-center">
             {/* Abstract Background Effects */}
             <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff08_1px,transparent_1px),linear-gradient(to_bottom,#ffffff08_1px,transparent_1px)] bg-size-[24px_24px] mask-[radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] z-0 pointer-events-none"></div>
             <div className="absolute top-0 left-1/4 w-96 h-96 bg-[#0A5C36]/30 rounded-full blur-[120px] pointer-events-none z-0"></div>
             <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-[#0A5C36]/20 rounded-full blur-[120px] pointer-events-none z-0"></div>
 
-            <div className="container max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 relative z-10 w-full">
+            <div className="w-full max-w-7xl mx-auto px-4 md:px-6 pt-15 md:pt-20 z-10">
 
                 {/* Header Section */}
-                <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+                <div className="flex flex-col md:flex-row md:items-end justify-between mb-10  gap-6">
                     <div>
                         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-[10px] font-semibold uppercase tracking-wider mb-4">
                             <Icon icon="solar:folder-bold-duotone" className="w-3.5 h-3.5" />
@@ -33,28 +33,11 @@ export default function ProjetsPage() {
                 </div>
 
                 {/* Simple Grid Layout */}
-                <div className="grid grid-cols-2 md:grid-cols-2 xl:grid-cols-3 gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
                     {projects.items.map((project, idx) => (
                         <div
                             className="group relative flex flex-col bg-[#0a0a0a]/80 border border-white/5 hover:border-emerald-500/30 rounded-[2rem] overflow-hidden transition-all duration-500 hover:shadow-[0_0_30px_rgba(16,185,129,0.15)] backdrop-blur-sm"
                         >
-                            {/* Image Header */}
-                            {/* <div className="relative h-60 w-full overflow-hidden bg-white/5 border-b border-white/5 block">
-                                <img
-                                    src={project.image}
-                                    alt={project.title}
-                                    className="w-full h-full object-cover opacity-80 group-hover:scale-105 group-hover:opacity-100 transition-all duration-700"
-                                />
-                                <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a]/90 to-transparent opacity-80 group-hover:opacity-60 transition-opacity"></div>
-
-                                {project.badge && (
-                                    <div className={`absolute top-4 right-4 ${project.badge.style === 'pulse' ? 'bg-black/80 text-white border-white/10' : 'bg-emerald-500/20 text-emerald-400 border-emerald-500/30'} backdrop-blur-md px-3 py-1.5 flex items-center gap-2 rounded-xl border text-xs font-mono shadow-lg`}>
-                                        {project.badge.style === 'pulse' && <div className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></div>}
-                                        {project.badge.icon && <Icon icon={project.badge.icon} className="w-3.5 h-3.5" />}
-                                        {project.badge.label}
-                                    </div>
-                                )}
-                            </div> */}
 
                             {/* Card Content */}
                             <div className="p-4 md:p-5 flex flex-col flex-1">
@@ -69,7 +52,7 @@ export default function ProjetsPage() {
                                     {project.categories && (
                                         <div className="flex flex-wrap items-center gap-2">
                                             {project.categories.map((cat, i) => (
-                                                <span key={i} className={`text-xs ${cat.active ? 'text-emerald-400 font-medium bg-emerald-500/10 px-2 py-1 rounded-md border border-emerald-500/20' : 'text-slate-500'}`}>
+                                                <span key={i} className={`text-xs ${cat.active ? 'text-emerald-400 font-medium bg-emerald-500/10 px-2 py-1 rounded-md border border-emerald-500/20' : 'text-stone-500'}`}>
                                                     {cat.name}
                                                 </span>
                                             ))}
@@ -96,7 +79,7 @@ export default function ProjetsPage() {
                                 {/* Tags */}
                                 <div className="flex flex-wrap gap-2 mb-4">
                                     {project.tags.map((tag, i) => (
-                                        <span key={i} className="px-3 py-1.5 bg-white/5 border border-white/10 rounded-lg text-[10px] sm:text-xs font-medium text-slate-300 group-hover:bg-white/10 transition-colors">
+                                        <span key={i} className="px-3 py-1.5 bg-white/5 border border-white/10 rounded-lg text-[10px] sm:text-xs font-medium text-stone-300 group-hover:bg-white/10 transition-colors">
                                             {tag}
                                         </span>
                                     ))}
@@ -106,10 +89,10 @@ export default function ProjetsPage() {
                                 <div className="flex items-center justify-between pt-2 border-t border-white/10">
                                     <div className="flex items-center gap-3">
                                         {project.techIcons.map((icon, i) => (
-                                            <Icon key={i} icon={icon} className="w-6 h-6 text-slate-400 grayscale group-hover:grayscale-0 group-hover:text-white transition-all duration-300" />
+                                            <Icon key={i} icon={icon} className="w-6 h-6 text-stone-400 grayscale group-hover:grayscale-0 group-hover:text-white transition-all duration-300" />
                                         ))}
                                     </div>
-                                    <a href={project.link} className="flex items-center justify-center w-10 h-10 rounded-full bg-white/5 border border-white/10 text-slate-400 group-hover:bg-emerald-500 group-hover:text-black group-hover:border-emerald-500 transition-all hover:scale-110">
+                                    <a href={project.link} className="flex items-center justify-center w-10 h-10 rounded-full bg-white/5 border border-white/10 text-stone-400 group-hover:bg-emerald-500 group-hover:text-black group-hover:border-emerald-500 transition-all hover:scale-110">
                                         <Icon icon="solar:arrow-right-up-linear" className="w-5 h-5" />
                                     </a>
                                 </div>

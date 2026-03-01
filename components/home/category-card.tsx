@@ -15,8 +15,8 @@ export function CategoryCard({ emoji, title, description, bgColor }: CategoryCar
                 <span className="text-3xl">{emoji}</span>
             </div>
             <div>
-                <h3 className="font-bold text-sm text-slate-800 dark:text-slate-100">{title}</h3>
-                <p className="text-xs text-slate-500 dark:text-slate-400">{description}</p>
+                <h3 className="font-bold text-sm text-stone-800 dark:text-stone-100">{title}</h3>
+                <p className="text-xs text-stone-500 dark:text-stone-400">{description}</p>
             </div>
         </a>
     );

@@ -85,10 +85,6 @@
                         "icon": "logos:nuxt-icon"
                     },
                     {
-                        "name": "Angular",
-                        "icon": "logos:angular-icon"
-                    },
-                    {
                         "name": "Vue.js",
                         "icon": "logos:vue"
                     },
@@ -179,14 +175,6 @@
                     {
                         "name": "Illustrator",
                         "icon": "logos:adobe-illustrator"
-                    },
-                    {
-                        "name": "Animation",
-                        "icon": "solar:video-frame-bold-duotone"
-                    },
-                    {
-                        "name": "Wireframe",
-                        "icon": "solar:object-scan-bold-duotone"
                     }
                 ]
             }

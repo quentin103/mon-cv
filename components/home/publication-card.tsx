@@ -48,15 +48,15 @@ export function PublicationCard({
 
             {/* Content Section */}
             <div className="flex-1 p-4 flex flex-col justify-between relative min-w-0">
-                <button className="absolute top-4 right-4 text-slate-300 hover:text-red-500 transition-colors">
+                <button className="absolute top-4 right-4 text-stone-300 hover:text-red-500 transition-colors">
                     <Icon icon="solar:heart-linear" className="w-5 h-5" />
                 </button>
 
                 <div>
-                    <h3 className="font-bold text-slate-800 text-base md:text-lg leading-tight pr-8 truncate">
+                    <h3 className="font-bold text-stone-800 text-base md:text-lg leading-tight pr-8 truncate">
                         {title}
                     </h3>
-                    <p className="text-slate-500 text-xs mt-1 line-clamp-2 font-medium">
+                    <p className="text-stone-500 text-xs mt-1 line-clamp-2 font-medium">
                         {description}
                     </p>
                 </div>
@@ -64,9 +64,9 @@ export function PublicationCard({
                 <div className="mt-3 space-y-2">
                     <div className="flex items-center gap-1.5">
                         <div className="w-5 h-5 rounded-full bg-slate-100 flex items-center justify-center text-[10px]">
-                            <Icon icon="solar:user-bold" className="w-3 h-3 text-slate-400" />
+                            <Icon icon="solar:user-bold" className="w-3 h-3 text-stone-400" />
                         </div>
-                        <span className="text-xs font-bold text-slate-700">{sellerName}</span>
+                        <span className="text-xs font-bold text-stone-700">{sellerName}</span>
                         {isVerified && (
                             <Icon icon="solar:verified-check-bold" className="w-3.5 h-3.5 text-[#0A5C36]" />
                         )}
@@ -76,11 +76,11 @@ export function PublicationCard({
                         <div className="flex flex-col">
                             <div className="flex items-baseline gap-1">
                                 <span className="text-lg font-black text-[#0A5C36]">{price}</span>
-                                <span className="text-[9px] font-bold text-slate-400 uppercase tracking-tight">{unit}</span>
+                                <span className="text-[9px] font-bold text-stone-400 uppercase tracking-tight">{unit}</span>
                             </div>
-                            <div className="flex items-center gap-1 text-slate-400">
+                            <div className="flex items-center gap-1 text-stone-400">
                                 <Icon icon="solar:link-bold-duotone" className="w-3.5 h-3.5 text-[#0A5C36]/60" />
-                                <span className="text-[10px] font-bold text-slate-500 opacity-80">{distance}</span>
+                                <span className="text-[10px] font-bold text-stone-500 opacity-80">{distance}</span>
                             </div>
                         </div>
 

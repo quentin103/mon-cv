@@ -121,12 +121,12 @@ export function MarketFilterModal({ isOpen, onClose, onApply, currentFilters, ca
                         {/* Header */}
                         <div className="p-6 border-b border-slate-100 flex items-center justify-between">
                             <div>
-                                <h2 className="text-xl font-black text-slate-900">Filtres</h2>
-                                <p className="text-xs font-bold text-slate-400 uppercase tracking-widest mt-1">Affinez votre recherche</p>
+                                <h2 className="text-xl font-black text-stone-900">Filtres</h2>
+                                <p className="text-xs font-bold text-stone-400 uppercase tracking-widest mt-1">Affinez votre recherche</p>
                             </div>
                             <button
                                 onClick={onClose}
-                                className="w-10 h-10 bg-slate-50 rounded-xl flex items-center justify-center text-slate-400 hover:text-slate-600 transition-colors"
+                                className="w-10 h-10 bg-slate-50 rounded-xl flex items-center justify-center text-stone-400 hover:text-stone-600 transition-colors"
                             >
                                 <Icon icon="solar:close-circle-bold" className="w-6 h-6" />
                             </button>
@@ -137,7 +137,7 @@ export function MarketFilterModal({ isOpen, onClose, onApply, currentFilters, ca
                             <div className="grid md:grid-cols-2 gap-4">
                                 {filterOptions.map((section) => (
                                     <div key={section.title} className="space-y-3">
-                                        <h3 className="text-[10px] font-black text-slate-400 uppercase tracking-widest flex items-center gap-2">
+                                        <h3 className="text-[10px] font-black text-stone-400 uppercase tracking-widest flex items-center gap-2">
                                             <div className="w-1 h-3 bg-[#0A5C36] rounded-full" />
                                             {section.title}
                                         </h3>
@@ -152,12 +152,12 @@ export function MarketFilterModal({ isOpen, onClose, onApply, currentFilters, ca
                                                         flex items-center justify-between p-3 rounded-xl border transition-all duration-200
                                                         ${isSelected
                                                                 ? 'bg-emerald-50 border-[#0A5C36] text-[#0A5C36]'
-                                                                : 'bg-slate-50 border-transparent text-slate-600 hover:border-slate-200'
+                                                                : 'bg-slate-50 border-transparent text-stone-600 hover:border-slate-200'
                                                             }
                                                     `}
                                                     >
                                                         <div className="flex items-center gap-2.5">
-                                                            <Icon icon={option.icon} className={`w-4 h-4 ${isSelected ? 'text-[#0A5C36]' : 'text-slate-400'}`} />
+                                                            <Icon icon={option.icon} className={`w-4 h-4 ${isSelected ? 'text-[#0A5C36]' : 'text-stone-400'}`} />
                                                             <span className="font-bold text-xs">{option.label}</span>
                                                         </div>
                                                         {isSelected && (
@@ -176,7 +176,7 @@ export function MarketFilterModal({ isOpen, onClose, onApply, currentFilters, ca
                         <div className="p-4 border-t border-slate-100 bg-white flex items-center gap-3">
                             <Button
                                 variant="ghost"
-                                className="h-11 px-4 rounded-xl font-bold text-slate-400 hover:bg-slate-50 text-xs"
+                                className="h-11 px-4 rounded-xl font-bold text-stone-400 hover:bg-slate-50 text-xs"
                                 onClick={() => setSelectedFilters([])}
                             >
                                 Réinitialiser
