@@ -59,7 +59,7 @@ export default function ContactPage() {
                                 <Icon icon="solar:letter-bold-duotone" className="w-3.5 h-3.5" />
                                 Contact
                             </div>
-                            <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight text-white mb-4 leading-tight">
+                            <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight text-white mb-4 leading-tight">
                                 Donnons vie à vos <span className="text-emerald-400">idées.</span>
                             </h1>
                             <p className="text-stone-400 text-sm md:text-base leading-relaxed">
