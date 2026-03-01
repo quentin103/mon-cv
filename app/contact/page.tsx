@@ -74,18 +74,65 @@ export default function ContactPage() {
                                     whileHover={{ scale: 1.02, x: 5 }}
                                     className="flex items-center gap-4 p-4 rounded-2xl bg-white/2 border border-white/5 hover:bg-white/5 hover:border-emerald-500/30 transition-all group"
                                 >
-                                    <div className="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 group-hover:scale-110 transition-transform shadow-[0_0_15px_rgba(16,185,129,0.15)] group-hover:shadow-[0_0_20px_rgba(16,185,129,0.3)]">
+                                    <div className="w-12 h-12 shrink-0 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 group-hover:scale-110 transition-transform shadow-[0_0_15px_rgba(16,185,129,0.15)] group-hover:shadow-[0_0_20px_rgba(16,185,129,0.3)]">
                                         <Icon icon={social.icon} className="w-6 h-6" />
                                     </div>
-                                    <div>
+                                    <div className="min-w-0 pr-2">
                                         <h3 className="text-white font-semibold text-sm">{social.name}</h3>
-                                        <p className="text-stone-500 text-xs font-mono mt-0.5 group-hover:text-emerald-400/70 transition-colors">
+                                        <p className="text-stone-500 text-xs font-mono mt-0.5 group-hover:text-emerald-400/70 transition-colors truncate">
                                             {social.href.replace('mailto:', '').replace('https://', '').replace('www.', '')}
                                         </p>
                                     </div>
-                                    <Icon icon="solar:arrow-right-up-linear" className="w-5 h-5 text-stone-600 ml-auto group-hover:text-emerald-400 transition-colors" />
+                                    <Icon icon="solar:arrow-right-up-linear" className="w-5 h-5 shrink-0 text-stone-600 ml-auto group-hover:text-emerald-400 transition-colors" />
                                 </motion.a>
                             ))}
+
+                            <div className="pt-2">
+                                <div className="space-y-4 pt-4 border-t border-white/5">
+                                    {/* Localisation */}
+                                    <div className="flex items-center gap-4 p-4 rounded-2xl bg-white/2 border border-white/5">
+                                        <div className="w-12 h-12 shrink-0 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400">
+                                            <Icon icon="solar:map-point-bold-duotone" className="w-6 h-6" />
+                                        </div>
+                                        <div>
+                                            <h3 className="text-white font-semibold text-sm">Localisation</h3>
+                                            <p className="text-stone-500 text-xs font-mono mt-0.5">{portfolioData.contact.location}</p>
+                                        </div>
+                                    </div>
+
+                                    {/* Contact Mobile */}
+                                    <div className="flex flex-col sm:flex-row sm:items-center gap-4 p-4 rounded-2xl bg-white/2 border border-white/5">
+                                        <div className="flex items-center gap-4 flex-1">
+                                            <div className="w-12 h-12 shrink-0 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400">
+                                                <Icon icon="solar:phone-calling-bold-duotone" className="w-6 h-6" />
+                                            </div>
+                                            <div>
+                                                <h3 className="text-white font-semibold text-sm">Contact</h3>
+                                                <p className="text-stone-500 text-xs font-mono mt-0.5">{portfolioData.contact.phone}</p>
+                                            </div>
+                                        </div>
+                                        <div className="flex items-center gap-2 pl-18 sm:pl-0">
+                                            <a href={portfolioData.contact.whatsapp} target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-xl bg-[#25D366]/10 border border-[#25D366]/20 text-[#25D366] flex items-center justify-center hover:bg-[#25D366]/20 transition-colors" title="WhatsApp">
+                                                <Icon icon="mdi:whatsapp" className="w-5 h-5" />
+                                            </a>
+                                            <a href={portfolioData.contact.telegram} target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-xl bg-[#0088cc]/10 border border-[#0088cc]/20 text-[#0088cc] flex items-center justify-center hover:bg-[#0088cc]/20 transition-colors" title="Telegram">
+                                                <Icon icon="mdi:telegram" className="w-5 h-5" />
+                                            </a>
+                                        </div>
+                                    </div>
+
+                                    {/* Langues */}
+                                    <div className="flex items-center gap-4 p-4 rounded-2xl bg-white/2 border border-white/5">
+                                        <div className="w-12 h-12 shrink-0 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400">
+                                            <Icon icon="solar:global-bold-duotone" className="w-6 h-6" />
+                                        </div>
+                                        <div>
+                                            <h3 className="text-white font-semibold text-sm">Langues</h3>
+                                            <p className="text-stone-500 text-xs font-mono mt-0.5 capitalize">{portfolioData.contact.languages}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </motion.div>
 
