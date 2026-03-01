@@ -45,6 +45,7 @@ export async function sendContactEmail(formData: FormData) {
     }
 
     const isValidToken = await verifyTurnstileToken(token);
+    console.log("isValidToken", isValidToken);
 
     if (!isValidToken) {
         console.error("Turnstile validation failed for token:", token.substring(0, 10) + "...");
