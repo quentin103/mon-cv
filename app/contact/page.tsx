@@ -10,6 +10,7 @@ import { sendContactEmail } from "./actions";
 export default function ContactPage() {
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [status, setStatus] = useState<{ type: 'success' | 'error' | null, message: string }>({ type: null, message: '' });
+    const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
     const formRef = useRef<HTMLFormElement>(null);
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -18,6 +19,9 @@ export default function ContactPage() {
         setStatus({ type: null, message: '' });
 
         const formData = new FormData(e.currentTarget);
+        if (turnstileToken) {
+            formData.set("cf-turnstile-response", turnstileToken);
+        }
 
         try {
             const result = await sendContactEmail(formData);
@@ -203,8 +207,7 @@ export default function ContactPage() {
                                 </div>
 
                                 <div className="w-full flex justify-center py-2">
-                                    {siteKey}
-                                    {siteKey && <Turnstile siteKey={siteKey} options={{ theme: 'dark' }} />}
+                                    {siteKey && <Turnstile siteKey={siteKey} options={{ theme: 'dark' }} onSuccess={(token) => setTurnstileToken(token)} />}
                                 </div>
 
                                 {status.type && (
