@@ -10,7 +10,7 @@ export function Hero() {
     const tabs = [
         { id: 'ts', name: 'author.ts', icon: 'vscode-icons:file-type-typescript-official' },
         { id: 'py', name: 'author.py', icon: 'vscode-icons:file-type-python' },
-        { id: 'sh', name: 'terminal.sh', icon: 'vscode-icons:file-type-shell' },
+        { id: 'sh', name: 'terminal', icon: 'vscode-icons:file-type-shell' },
     ];
 
     return (
@@ -90,7 +90,7 @@ export function Hero() {
                         {/* Editor Window */}
                         <div className="relative rounded-2xl bg-[linear-gradient(to_right,#ffffff08_1px,transparent_1px)] border border-white/10 shadow-2xl overflow-hidden z-10 backdrop-blur-xl">
                             {/* Window Actions */}
-                            <div className="flex items-center px-4 py-3 bg-[#0d1713]/80 border-b border-white/5 gap-2">
+                            <div className="flex items-center px-2 py-3 bg-[#0d1713]/80 border-b border-white/5 gap-2">
                                 {/* <div className="flex gap-2 shrink-0">
                                     <div className="w-3 h-3 rounded-full bg-red-500/80"></div>
                                     <div className="w-3 h-3 rounded-full bg-yellow-500/80"></div>
