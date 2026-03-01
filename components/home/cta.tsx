@@ -9,7 +9,7 @@ export function Cta() {
     const { cta } = portfolioData;
 
     return (
-        <section className="relative w-full max-w-7xl mx-auto px-4 md:px-6 pt-12 pb-24 z-10">
+        <section className="relative w-full max-w-7xl mx-auto px-4 md:px-6 pt-10 pb-24 z-10">
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}

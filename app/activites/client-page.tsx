@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { Icon } from "@iconify/react";
 import portfolioData from "@/data/portfolio.json";
+import GithubContributions from "@/components/GithubContributions";
 
 const container = {
     hidden: { opacity: 0 },
@@ -126,7 +127,10 @@ export default function ProjetsPage() {
                         </motion.div>
                     ))}
                 </motion.div>
+
+                <GithubContributions />
             </div>
+
         </main>
     );
 }

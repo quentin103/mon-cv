@@ -47,6 +47,11 @@
                 "href": "https://github.com/quentin103"
             },
             {
+                "name": "GitLab",
+                "icon": "mdi:gitlab",
+                "href": "https://gitlab.com/quentin103"
+            },
+            {
                 "name": "LinkedIn",
                 "icon": "mdi:linkedin",
                 "href": "https://www.linkedin.com/in/quentin-koffi"
