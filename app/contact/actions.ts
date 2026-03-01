@@ -7,11 +7,11 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 async function verifyTurnstileToken(token: string) {
     // Si la clé secrète n'est pas définie (ex: environnement dev local sans clés), on bypass la vérification 
     // ou alors on peut la forcer. On sécurise ici en retournant 'false' par défaut si configuré.
-    const SECRET_KEY = process.env.NEXT_PUBLIC_TURNSTILE_SECRET_KEY;
+    const SECRET_KEY = process.env.TURNSTILE_SECRET_KEY;
     console.log(SECRET_KEY);
 
     if (!SECRET_KEY) {
-        console.warn("NEXT_PUBLIC_TURNSTILE_SECRET_KEY is missing. Passing validation automatically for dev.");
+        console.warn("TURNSTILE_SECRET_KEY is missing. Passing validation automatically for dev.");
         return true;
     }
 
