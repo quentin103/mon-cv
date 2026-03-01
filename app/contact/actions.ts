@@ -10,7 +10,7 @@ async function verifyTurnstileToken(token: string) {
     const SECRET_KEY = process.env.TURNSTILE_SECRET_KEY;
 
     if (!SECRET_KEY) {
-        console.warn("TURNSTILE_SECRET_KEY is missing. Passing validation automatically for dev.");
+        console.error("TURNSTILE_SECRET_KEY is missing. Passing validation automatically for dev.");
         return true;
     }
 
