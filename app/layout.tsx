@@ -21,9 +21,9 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = metaObject(
-  "Accueil",
+  "Quentinak | Portfolio",
   undefined,
-  "Bienvenue sur Wild tech, Mon portfolio"
+  "Bienvenue sur mon Portfolio. Découvrez mes expertises et projets."
 );
 
 export default function RootLayout({

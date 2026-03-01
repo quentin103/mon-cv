@@ -1,16 +1,13 @@
-'use client'
-import { Hero } from "@/components/home/hero";
-import { Experience } from "@/components/home/experience";
-import { Expertise } from "@/components/home/expertise";
-import { Cta } from "@/components/home/cta";
+import { Metadata } from 'next';
+import { metaObject } from '@/lib/site.config';
+import HomeClientPage from './client-page';
+
+export const metadata: Metadata = metaObject(
+    "Quentin | Portfolio",
+    "Bienvenue sur mon portfolio de développeur. Découvrez mes expertises, mes projets et ma passion de l'UI/UX.",
+    "/"
+);
 
 export default function HomePage() {
-  return (
-    <main>
-      <Hero />
-      <Experience />
-      <Expertise />
-      <Cta />
-    </main>
-  );
+    return <HomeClientPage />;
 }
