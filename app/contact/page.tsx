@@ -206,8 +206,15 @@ export default function ContactPage() {
                                     </div>
                                 </div>
 
-                                <div className="w-full flex justify-center py-2">
-                                    {siteKey && <Turnstile siteKey={siteKey} options={{ theme: 'dark' }} onSuccess={(token) => setTurnstileToken(token)} />}
+                                <div className="w-full flex justify-center py-2 min-h-[65px]">
+                                    {siteKey ? (
+                                        <Turnstile siteKey={siteKey} options={{ theme: 'dark' }} onSuccess={(token) => setTurnstileToken(token)} />
+                                    ) : (
+                                        <div className="text-red-400 text-xs border border-red-500/20 bg-red-500/10 p-3 rounded-xl flex items-center gap-2">
+                                            <Icon icon="solar:danger-triangle-bold-duotone" className="w-4 h-4 shrink-0" />
+                                            Configuration manquante : NEXT_PUBLIC_TURNSTILE_SITE_KEY introuvable.
+                                        </div>
+                                    )}
                                 </div>
 
                                 {status.type && (
@@ -223,7 +230,7 @@ export default function ContactPage() {
 
                                 <button
                                     type="submit"
-                                    disabled={isSubmitting}
+                                    disabled={isSubmitting || !turnstileToken}
                                     className="w-full relative group overflow-hidden rounded-xl p-px disabled:opacity-50 disabled:cursor-not-allowed"
                                 >
                                     <span className="absolute inset-0 bg-linear-to-r from-emerald-500 to-teal-500 rounded-xl opacity-70 group-hover:opacity-100 transition-opacity duration-300 blur-sm"></span>
@@ -233,7 +240,13 @@ export default function ContactPage() {
                                         ) : (
                                             <Icon icon="solar:plain-3-bold-duotone" className="w-5 h-5 text-emerald-400 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                                         )}
-                                        <span className="font-bold text-white text-sm">{isSubmitting ? 'Envoi en cours...' : 'Envoyer le message'}</span>
+                                        <span className="font-bold text-white text-sm">
+                                            {!turnstileToken
+                                                ? 'Validation Captcha requise...'
+                                                : isSubmitting
+                                                    ? 'Envoi en cours...'
+                                                    : 'Envoyer le message'}
+                                        </span>
                                     </div>
                                 </button>
                             </form>
