@@ -239,6 +239,10 @@
                 "description": "Application de gestion de stock avec suivi des entrées et sorties, utilisant websockets.",
                 "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=600",
                 "link": "",
+                "badge": {
+                    "label": "Production - privé",
+                    "style": "pulse"
+                },
                 "categories": [
                     {
                         "name": "App web",
@@ -269,6 +273,10 @@
                 "description": "Plateforme agricole tout‑en‑un offrant marché, météo, alertes, transport et services financiers pour les acteurs ivoiriens.",
                 "image": "https://images.unsplash.com/photo-1582719478250-8c9c5e7c0d0c?auto=format&fit=crop&q=80&w=800",
                 "link": "https://eagri.ci/",
+                "badge": {
+                    "label": "Production",
+                    "style": "pulse"
+                },
                 "categories": [
                     {
                         "name": "E-commerce",
@@ -294,11 +302,43 @@
             {
                 "id": "project-4",
                 "layout": "small",
+                "title": "Container Tracking Interface",
+                "year": "2022",
+                "description": "Développement d’interface de suivi client des containers.",
+                "image": "https://images.unsplash.com/photo-1504384308090-9c3c0b8f5c3b?auto=format&fit=crop&q=80&w=800",
+                "link": "",
+                "private": true,
+                "badge": {
+                    "label": "Production - privé",
+                    "style": "pulse"
+                },
+                "categories": [
+                    {
+                        "name": "App web",
+                        "active": true
+                    }
+                ],
+                "tags": [
+                    "Containers",
+                    "Interface"
+                ],
+                "techIcons": [
+                    "devicon:vuejs",
+                    "devicon:typescript"
+                ]
+            },
+            {
+                "id": "project-5",
+                "layout": "small",
                 "title": "Agri‑Store Stats",
                 "year": "2021‑2022",
                 "description": "Application web de suivi des statistiques de la plateforme Agri‑store et interface de suivi client des containers.",
                 "image": "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&q=80&w=800",
                 "link": "",
+                "badge": {
+                    "label": "Privé",
+                    "style": "pulse"
+                },
                 "categories": [
                     {
                         "name": "App web",
@@ -313,30 +353,6 @@
                     "Statistiques",
                     "Containers",
                     "Agri‑store"
-                ],
-                "techIcons": [
-                    "devicon:vuejs",
-                    "devicon:typescript"
-                ]
-            },
-            {
-                "id": "project-5",
-                "layout": "small",
-                "title": "Container Tracking Interface",
-                "year": "2022",
-                "description": "Développement d’interface de suivi client des containers.",
-                "image": "https://images.unsplash.com/photo-1504384308090-9c3c0b8f5c3b?auto=format&fit=crop&q=80&w=800",
-                "link": "",
-                "private": true,
-                "categories": [
-                    {
-                        "name": "App web",
-                        "active": true
-                    }
-                ],
-                "tags": [
-                    "Containers",
-                    "Interface"
                 ],
                 "techIcons": [
                     "devicon:vuejs",
@@ -482,6 +498,22 @@
         "passion": "Passionné par la création et l'invention. J'aime concevoir de nouveaux outils, imaginer des solutions élégantes et donner vie à des idées concrètes à travers le code.",
         "gallery": [
             "/me/photo_1.jpg"
+        ]
+    },
+    "testimonials": {
+        "sectionLabel": "Témoignages",
+        "title": "Ce qu'ils disent de moi",
+        "items": [
+            {
+                "name": "Nano technologie",
+                "role": "Responsable IT",
+                "content": "Application fluide et performante, écoute et réactivité au top. livre des projets de qualité et respecte les délais. 🚀"
+            },
+            {
+                "name": "Collègue développeur",
+                "role": "Mobisoft",
+                "content": "Quentin maîtrise vraiment son domaine en front-end. Quand il y a un problème technique sur les interfaces utilisateurs, il trouve vite la solution avec des interfaces propres et rapides."
+            }
         ]
     }
 }

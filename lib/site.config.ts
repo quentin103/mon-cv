@@ -74,14 +74,6 @@ export const metaObject = (
       description: metaDescription,
       url: url,
       siteName: siteConfig.title,
-      images: [
-        {
-          url: "/images/og-image.webp",
-          width: 1200,
-          height: 630,
-          alt: metaTitle,
-        },
-      ],
       locale: "fr_FR",
       type: "website",
     },
@@ -89,7 +81,6 @@ export const metaObject = (
       card: "summary_large_image",
       title: metaTitle,
       description: metaDescription,
-      images: ["/images/og-image.webp"],
     },
   };
 };

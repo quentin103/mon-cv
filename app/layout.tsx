@@ -4,6 +4,7 @@ import "./globals.css";
 import { metaObject } from "@/lib/site.config";
 import { FloatingNav } from "@/components/floating-nav";
 import { Footer } from "@/components/footer";
+import { PageTransition } from "@/components/page-transition";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -37,7 +38,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} ${plusJakartaSans.variable} bg-[#050505] antialiased relative`}
       >
         <FloatingNav />
-        {children}
+        <PageTransition>{children}</PageTransition>
         <Footer />
       </body>
     </html>

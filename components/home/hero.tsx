@@ -2,6 +2,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Icon } from "@iconify/react";
 import portfolioData from "@/data/portfolio.json";
+import { TerminalInteractive } from "@/components/home/terminal-interactive";
 
 export function Hero() {
     const [activeTab, setActiveTab] = useState('ts');
@@ -9,6 +10,7 @@ export function Hero() {
     const tabs = [
         { id: 'ts', name: 'author.ts', icon: 'vscode-icons:file-type-typescript-official' },
         { id: 'py', name: 'author.py', icon: 'vscode-icons:file-type-python' },
+        { id: 'sh', name: 'terminal.sh', icon: 'vscode-icons:file-type-shell' },
     ];
 
     return (
@@ -89,11 +91,11 @@ export function Hero() {
                         <div className="relative rounded-2xl bg-[linear-gradient(to_right,#ffffff08_1px,transparent_1px)] border border-white/10 shadow-2xl overflow-hidden z-10 backdrop-blur-xl">
                             {/* Window Actions */}
                             <div className="flex items-center px-4 py-3 bg-[#0d1713]/80 border-b border-white/5 gap-2">
-                                <div className="flex gap-2 shrink-0">
+                                {/* <div className="flex gap-2 shrink-0">
                                     <div className="w-3 h-3 rounded-full bg-red-500/80"></div>
                                     <div className="w-3 h-3 rounded-full bg-yellow-500/80"></div>
                                     <div className="w-3 h-3 rounded-full bg-green-500/80"></div>
-                                </div>
+                                </div> */}
                                 <div className="flex gap-1 overflow-x-auto no-scrollbar">
                                     {tabs.map((tab) => (
                                         <button
@@ -156,6 +158,9 @@ export function Hero() {
                                                 <div className="text-stone-300"><span className="text-blue-400">developer</span>.<span className="text-yellow-200">build</span>()</div>
                                             </pre>
                                         </motion.div>
+                                    )}
+                                    {activeTab === 'sh' && (
+                                        <TerminalInteractive key="sh" />
                                     )}
                                 </AnimatePresence>
                             </div>
