@@ -10,7 +10,6 @@ export default function HomePage() {
       <Hero />
       <Experience />
       <Expertise />
-
       <Cta />
     </main>
   );

@@ -8,7 +8,6 @@ export default function GithubContributions() {
             <h2 className="text-xl font-bold mb-4">
                 Mes contributions GitHub
             </h2>
-
             <GitHubCalendar
                 username="quentin103"
                 blockSize={15}
