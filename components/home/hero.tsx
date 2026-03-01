@@ -43,22 +43,38 @@ export function Hero() {
                             {portfolioData.hero.description}
                         </p>
 
-                        {/* Social Links */}
-                        <div className="flex items-center gap-6">
-                            {portfolioData.hero.socialLinks.map((social, idx) => (
-                                <a key={idx} href={social.href} target="_blank" rel="noopener noreferrer" className="relative group flex items-center justify-center">
-                                    <Icon
-                                        icon={social.icon}
-                                        className="w-8 h-8 sm:w-10 sm:h-10 text-emerald-500/60 transition-all duration-300 cursor-pointer group-hover:scale-110 group-hover:text-emerald-400 group-hover:drop-shadow-[0_0_10px_rgba(16,185,129,0.4)]"
-                                    />
-                                    {/* Tooltip */}
-                                    <span className="absolute -top-12 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0 bg-[#0D1713]/90 backdrop-blur-md border border-white/10 text-stone-200 text-xs py-1.5 px-3 rounded-lg pointer-events-none whitespace-nowrap shadow-[0_8px_32px_rgba(0,0,0,0.4)] z-20">
-                                        {social.name}
-                                        {/* Flèche du tooltip */}
-                                        <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-[#0D1713] border-b border-r border-white/10 rotate-45 transform"></span>
-                                    </span>
-                                </a>
-                            ))}
+                        {/* Action Buttons */}
+                        <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6 md:gap-8 pt-2">
+                            {/* CV Button */}
+                            <a
+                                href="/pdf/cv.pdf"
+                                download="Quentin_CV.pdf"
+                                className="relative group overflow-hidden rounded-xl p-px font-mono text-sm"
+                            >
+                                <span className="absolute inset-0 bg-linear-to-r from-emerald-500 to-teal-500 rounded-xl opacity-70 group-hover:opacity-100 transition-opacity duration-300 blur-sm"></span>
+                                <div className="relative flex items-center justify-center gap-2 bg-[#050505] group-hover:bg-[#0a0a0a] border border-emerald-500/30 px-6 py-3 md:px-8 md:py-3.5 rounded-xl transition-all duration-300">
+                                    <Icon icon="solar:file-download-bold-duotone" className="w-5 h-5 md:w-6 md:h-6 text-emerald-400 group-hover:-translate-y-1 transition-transform" />
+                                    <span className="font-bold text-white text-xs md:text-sm">Télécharger mon CV</span>
+                                </div>
+                            </a>
+
+                            {/* Social Links */}
+                            <div className="flex items-center gap-5">
+                                {portfolioData.hero.socialLinks.map((social, idx) => (
+                                    <a key={idx} href={social.href} target="_blank" rel="noopener noreferrer" className="relative group flex items-center justify-center">
+                                        <Icon
+                                            icon={social.icon}
+                                            className="w-8 h-8 md:w-9 md:h-9 text-emerald-500/60 transition-all duration-300 cursor-pointer group-hover:scale-110 group-hover:text-emerald-400 group-hover:drop-shadow-[0_0_10px_rgba(16,185,129,0.4)]"
+                                        />
+                                        {/* Tooltip */}
+                                        <span className="absolute -top-12 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0 bg-[#0D1713]/90 backdrop-blur-md border border-white/10 text-stone-200 text-xs py-1.5 px-3 rounded-lg pointer-events-none whitespace-nowrap shadow-[0_8px_32px_rgba(0,0,0,0.4)] z-20">
+                                            {social.name}
+                                            {/* Flèche du tooltip */}
+                                            <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-[#0D1713] border-b border-r border-white/10 rotate-45 transform"></span>
+                                        </span>
+                                    </a>
+                                ))}
+                            </div>
                         </div>
                     </motion.div>
 

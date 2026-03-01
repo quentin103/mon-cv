@@ -21,7 +21,7 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = metaObject(
-  "Home",
+  "Accueil",
   undefined,
   "Bienvenue sur Wild tech, Mon portfolio"
 );

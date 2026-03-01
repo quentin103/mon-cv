@@ -7,8 +7,8 @@
             "showLabelOnDesktop": false
         },
         {
-            "name": "Mes projets",
-            "href": "/projets",
+            "name": "Activités",
+            "href": "/activites",
             "icon": "solar:folder-bold-duotone",
             "showLabelOnDesktop": true
         },
@@ -182,49 +182,61 @@
     },
     "projects": {
         "sectionLabel": "Portfolio",
-        "title": "Projets Récents",
+        "title": "Activités - Projets",
         "githubLink": "https://github.com/",
         "items": [
             {
                 "id": "project-1",
                 "layout": "large",
-                "title": "App de gestion entreprise",
-                "year": "2025",
+                "title": "Nano Dashboard - SAAS",
+                "year": "2026",
                 "description": "Application de gestion d'entreprise avec gestion des activités, des projets, des finances et des utilisateurs.",
                 "image": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=800",
-                "link": "#",
+                "link": "",
                 "badge": {
-                    "label": "Production",
+                    "label": "Production - privé",
                     "style": "pulse"
                 },
                 "categories": [
                     {
-                        "name": "Projet B2B",
+                        "name": "Nanotechnology",
+                        "active": true
+                    },
+                    {
+                        "name": "Application web",
+                        "active": true
+                    },
+                    {
+                        "name": "En cours",
                         "active": true
                     }
                 ],
                 "tags": [
-                    "Stripe API",
-                    "Auth.js",
-                    "Sanity CMS"
+                    "Entreprise",
+                    "Finance",
+                    "Utilisateurs"
                 ],
                 "techIcons": [
-                    "devicon:react",
-                    "devicon:nextjs",
-                    "devicon:tailwindcss"
+                    "devicon:nuxt",
+                    "devicon:nestjs",
+                    "devicon:redis",
+                    "devicon:postgresql",
+                    "devicon:mongodb",
+                    "devicon:docker",
+                    "devicon:jwt"
                 ]
             },
             {
                 "id": "project-2",
                 "layout": "small",
                 "title": "Dashboard Admin",
-                "year": "2024",
-                "description": "Interface de gestion avec websockets.",
+                "year": "2026",
+                "description": "Application de gestion de stock avec suivi des entrées et sorties, utilisant websockets.",
                 "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=600",
-                "link": "#",
+                "link": "",
                 "categories": [
                     {
-                        "name": "Portfolio",
+                        "name": "App web",
                         "active": true
                     },
                     {
@@ -233,8 +245,93 @@
                     }
                 ],
                 "tags": [
-                    "Socket.io",
+                    "Stock",
+                    "Entrée/Sortie",
                     "Pinia"
+                ],
+                "techIcons": [
+                    "devicon:nuxt",
+                    "devicon:typescript",
+                    "devicon:docker",
+                    "devicon:postgresql"
+                ]
+            },
+            {
+                "id": "project-3",
+                "layout": "large",
+                "title": "eAgri Platform",
+                "year": "2024",
+                "description": "Plateforme agricole tout‑en‑un offrant marché, météo, alertes, transport et services financiers pour les acteurs ivoiriens.",
+                "image": "https://images.unsplash.com/photo-1582719478250-8c9c5e7c0d0c?auto=format&fit=crop&q=80&w=800",
+                "link": "https://eagri.ci/",
+                "categories": [
+                    {
+                        "name": "E-commerce",
+                        "active": true
+                    },
+                    {
+                        "name": "Plateforme",
+                        "active": true
+                    }
+                ],
+                "tags": [
+                    "Agriculture",
+                    "Marketplace",
+                    "Transport"
+                ],
+                "techIcons": [
+                    "devicon:vuejs",
+                    "devicon:nuxt",
+                    "devicon:typescript",
+                    "devicon:nodejs"
+                ]
+            },
+            {
+                "id": "project-4",
+                "layout": "small",
+                "title": "Agri‑Store Stats",
+                "year": "2021‑2022",
+                "description": "Application web de suivi des statistiques de la plateforme Agri‑store et interface de suivi client des containers.",
+                "image": "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&q=80&w=800",
+                "link": "",
+                "categories": [
+                    {
+                        "name": "App web",
+                        "active": true
+                    },
+                    {
+                        "name": "Analytics",
+                        "active": true
+                    }
+                ],
+                "tags": [
+                    "Statistiques",
+                    "Containers",
+                    "Agri‑store"
+                ],
+                "techIcons": [
+                    "devicon:vuejs",
+                    "devicon:typescript"
+                ]
+            },
+            {
+                "id": "project-5",
+                "layout": "small",
+                "title": "Container Tracking Interface",
+                "year": "2022",
+                "description": "Développement d’interface de suivi client des containers.",
+                "image": "https://images.unsplash.com/photo-1504384308090-9c3c0b8f5c3b?auto=format&fit=crop&q=80&w=800",
+                "link": "",
+                "private": true,
+                "categories": [
+                    {
+                        "name": "App web",
+                        "active": true
+                    }
+                ],
+                "tags": [
+                    "Containers",
+                    "Interface"
                 ],
                 "techIcons": [
                     "devicon:vuejs",
@@ -242,5 +339,129 @@
                 ]
             }
         ]
+    },
+    "timeline": {
+        "sectionLabel": "Parcours",
+        "title": "Expériences & Formations",
+        "experiences": [
+            {
+                "title": "Développeur front-end",
+                "contract": "CDI",
+                "company": "MOBISOFT",
+                "period": "2024",
+                "description": [
+                    "Développement des interfaces de la plateforme eAgri et intégration d’API."
+                ]
+            },
+            {
+                "title": "Développeur front-end",
+                "contract": "CDD",
+                "company": "MOBISOFT",
+                "period": "2023",
+                "description": [
+                    "Développement des interfaces de la plateforme eAgri et intégration d’API.",
+                    "Maintenance des applications."
+                ]
+            },
+            {
+                "title": "Stagiaire",
+                "contract": "Stage",
+                "company": "MOBISOFT",
+                "period": "2021 - 2022",
+                "description": [
+                    "Réalisation d’une application web pour suivre les statistiques de la plateforme Agri-store.",
+                    "Développement d’interface de suivi client des containers."
+                ]
+            },
+            {
+                "title": "Stagiaire",
+                "contract": "Stage",
+                "company": "PROXIMITY",
+                "period": "2020 - 2021",
+                "description": [
+                    "Développement front.",
+                    "Maintenance sur différents projets.",
+                    "Conseil et réalisation de projets.",
+                    "Réalisation d’une application web.",
+                    "Réalisation d’une application Mobile."
+                ]
+            },
+            {
+                "title": "Stagiaire Universitaire",
+                "contract": "Stage",
+                "company": "Projet Universitaire",
+                "period": "2019 - 2020",
+                "description": [
+                    "Participation à la réalisation d’une application web. Missions : réalisation du back-end et création de la base de données."
+                ]
+            }
+        ],
+        "education": [
+            {
+                "degree": "MASTER 1 (Big Data Analytics)",
+                "school": "UNIVERSITÉ VIRTUELLE DE CÔTE D’IVOIRE",
+                "period": "2021"
+            },
+            {
+                "degree": "Licence (Développement d’Application et E-service)",
+                "school": "UNIVERSITÉ VIRTUELLE DE CÔTE D’IVOIRE",
+                "period": "2019 - 2020"
+            },
+            {
+                "degree": "BAC",
+                "school": "LYCÉE MODERNE D’AGBOVILLE",
+                "period": "2016 - 2017"
+            }
+        ],
+        "interests": [
+            {
+                "name": "La musique",
+                "icon": "solar:music-note-bold-duotone"
+            },
+            {
+                "name": "Le football",
+                "icon": "fluent-emoji-high-contrast:soccer-ball"
+            },
+            {
+                "name": "Jeux vidéo",
+                "icon": "solar:gamepad-bold-duotone"
+            },
+            {
+                "name": "L'électronique",
+                "icon": "solar:tuning-2-bold-duotone"
+            }
+        ]
+    },
+    "trustedBy": {
+        "sectionLabel": "Références",
+        "title": "Ils m'ont fait confiance",
+        "brands": [
+            {
+                "name": "Mobisoft",
+                "icon": "solar:buildings-bold-duotone"
+            },
+            {
+                "name": "eAgri",
+                "icon": "solar:leaf-bold-duotone"
+            },
+            {
+                "name": "Proximity",
+                "icon": "solar:users-group-two-rounded-bold-duotone"
+            },
+            {
+                "name": "Agri-Store",
+                "icon": "solar:shop-bold-duotone"
+            },
+            {
+                "name": "Nanotechnology",
+                "icon": "solar:atom-bold-duotone"
+            }
+        ]
+    },
+    "cta": {
+        "title": "Prêt à donner vie à vos idées ?",
+        "description": "N'hésitez pas à me contacter pour discuter de votre prochain projet, d'une opportunité professionnelle ou simplement échanger sur le développement.",
+        "buttonText": "Me contacter",
+        "href": "/contact"
     }
 }

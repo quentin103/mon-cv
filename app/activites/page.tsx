@@ -4,22 +4,41 @@ import { motion } from "framer-motion";
 import { Icon } from "@iconify/react";
 import portfolioData from "@/data/portfolio.json";
 
+const container = {
+    hidden: { opacity: 0 },
+    show: {
+        opacity: 1,
+        transition: {
+            staggerChildren: 0.1,
+            delayChildren: 0.2
+        }
+    }
+};
 
+const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    show: { opacity: 1, y: 0, transition: { type: "spring" as const, stiffness: 50 } }
+};
 
 export default function ProjetsPage() {
     const { projects } = portfolioData;
 
     return (
-        <main className="w-full min-h-screen bg-[#050505] text-white overflow-x-hidden pt-15 sm:pt-20 relative flex justify-center">
+        <main className="w-full bg-[#050505] text-white overflow-x-hidden pt-15 sm:pt-20 relative flex justify-center">
             {/* Abstract Background Effects */}
             <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff08_1px,transparent_1px),linear-gradient(to_bottom,#ffffff08_1px,transparent_1px)] bg-size-[24px_24px] mask-[radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] z-0 pointer-events-none"></div>
             <div className="absolute top-0 left-1/4 w-96 h-96 bg-[#0A5C36]/30 rounded-full blur-[120px] pointer-events-none z-0"></div>
             <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-[#0A5C36]/20 rounded-full blur-[120px] pointer-events-none z-0"></div>
 
-            <div className="w-full max-w-7xl mx-auto px-4 md:px-6 pt-15 md:pt-20 z-10">
+            <div className="w-full max-w-7xl mx-auto px-4 md:px-6 pt-15 md:pt-20 z-10 mb-8">
 
                 {/* Header Section */}
-                <div className="flex flex-col md:flex-row md:items-end justify-between mb-10  gap-6">
+                <motion.div
+                    initial={{ opacity: 0, y: -20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5 }}
+                    className="flex flex-col md:flex-row md:items-end justify-between mb-10  gap-6"
+                >
                     <div>
                         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-[10px] font-semibold uppercase tracking-wider mb-4">
                             <Icon icon="solar:folder-bold-duotone" className="w-3.5 h-3.5" />
@@ -30,13 +49,20 @@ export default function ProjetsPage() {
                             Une sélection de mes travaux récents. Parcourez la liste pour découvrir les interfaces, architectures techniques et fonctionnalités que j'ai pu développer.
                         </p>
                     </div>
-                </div>
+                </motion.div>
 
                 {/* Simple Grid Layout */}
-                <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
+                <motion.div
+                    variants={container}
+                    initial="hidden"
+                    animate="show"
+                    className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4"
+                >
                     {projects.items.map((project, idx) => (
-                        <div
-                            className="group relative flex flex-col bg-[#0a0a0a]/80 border border-white/5 hover:border-emerald-500/30 rounded-[2rem] overflow-hidden transition-all duration-500 hover:shadow-[0_0_30px_rgba(16,185,129,0.15)] backdrop-blur-sm"
+                        <motion.div
+                            key={project.id || idx}
+                            variants={itemVariants}
+                            className="group relative flex flex-col bg-[#0a0a0a]/80 border border-white/5 hover:border-emerald-500/30 rounded-2xl overflow-hidden transition-all duration-500 hover:shadow-[0_0_30px_rgba(16,185,129,0.15)] backdrop-blur-sm"
                         >
 
                             {/* Card Content */}
@@ -86,20 +112,20 @@ export default function ProjetsPage() {
                                 </div>
 
                                 {/* Footer: Icons & Link */}
-                                <div className="flex items-center justify-between pt-2 border-t border-white/10">
+                                <div className="flex items-center justify-between pt-3 border-t border-white/10">
                                     <div className="flex items-center gap-3">
                                         {project.techIcons.map((icon, i) => (
                                             <Icon key={i} icon={icon} className="w-6 h-6 text-stone-400 grayscale group-hover:grayscale-0 group-hover:text-white transition-all duration-300" />
                                         ))}
                                     </div>
-                                    <a href={project.link} className="flex items-center justify-center w-10 h-10 rounded-full bg-white/5 border border-white/10 text-stone-400 group-hover:bg-emerald-500 group-hover:text-black group-hover:border-emerald-500 transition-all hover:scale-110">
-                                        <Icon icon="solar:arrow-right-up-linear" className="w-5 h-5" />
-                                    </a>
+                                    {project.link ? <a href={project.link} className="flex items-center justify-center w-6 h-6 rounded-full bg-white/5 border border-white/10 text-stone-400 group-hover:bg-emerald-500 group-hover:text-black group-hover:border-emerald-500 transition-all hover:scale-110">
+                                        <Icon icon="solar:arrow-right-up-linear" className="w-4 h-4" />
+                                    </a> : null}
                                 </div>
                             </div>
-                        </div>
+                        </motion.div>
                     ))}
-                </div>
+                </motion.div>
             </div>
         </main>
     );
