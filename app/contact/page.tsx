@@ -34,6 +34,8 @@ export default function ContactPage() {
         }
     };
 
+    const siteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
+
     return (
         <main className="w-full min-h-screen bg-[#050505] text-white overflow-x-hidden pt-15 sm:pt-20 relative flex justify-center">
             {/* Abstract Background Effects */}
@@ -206,7 +208,7 @@ export default function ContactPage() {
                                 </div>
 
                                 <div className="w-full flex justify-center py-2">
-                                    <Turnstile siteKey={process.env.TURNSTILE_SITE_KEY || 'null'} options={{ theme: 'dark' }} />
+                                    {siteKey && <Turnstile siteKey={siteKey} options={{ theme: 'dark' }} />}
                                 </div>
 
                                 {status.type && (
