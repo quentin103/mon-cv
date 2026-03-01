@@ -23,6 +23,9 @@ async function verifyTurnstileToken(token: string) {
     });
 
     const data = await res.json();
+    if (!data.success) {
+        console.error("Cloudflare Turnstile Error Response:", data);
+    }
     return data.success;
 }
 
@@ -44,7 +47,8 @@ export async function sendContactEmail(formData: FormData) {
     const isValidToken = await verifyTurnstileToken(token);
 
     if (!isValidToken) {
-        return { success: false, error: "Échec de la validation anti-spam (Capture)." };
+        console.error("Turnstile validation failed for token:", token.substring(0, 10) + "...");
+        return { success: false, error: "Échec de la validation anti-spam (Captcha)." };
     }
 
     try {
