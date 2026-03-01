@@ -206,7 +206,7 @@ export default function ContactPage() {
                                 </div>
 
                                 <div className="w-full flex justify-center py-2">
-                                    <Turnstile siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY || 'null'} options={{ theme: 'dark' }} />
+                                    <Turnstile siteKey={process.env.TURNSTILE_SITE_KEY || 'null'} options={{ theme: 'dark' }} />
                                 </div>
 
                                 {status.type && (
