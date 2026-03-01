@@ -19,9 +19,6 @@ export default function ContactPage() {
         setStatus({ type: null, message: '' });
 
         const formData = new FormData(e.currentTarget);
-        if (turnstileToken) {
-            formData.set("cf-turnstile-response", turnstileToken);
-        }
 
         try {
             const result = await sendContactEmail(formData);

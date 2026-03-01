@@ -34,22 +34,9 @@ export async function sendContactEmail(formData: FormData) {
     const email = formData.get("email") as string;
     const subject = formData.get("subject") as string;
     const message = formData.get("message") as string;
-    const token = formData.get("cf-turnstile-response") as string;
 
     if (!name || !email || !message) {
         return { success: false, error: "Veuillez remplir les champs obligatoires." };
-    }
-
-    if (!token) {
-        return { success: false, error: "Veuillez valider le Captcha anti-spam." };
-    }
-
-    const isValidToken = await verifyTurnstileToken(token);
-    console.log("isValidToken", isValidToken);
-
-    if (!isValidToken) {
-        console.error("Turnstile validation failed for token:", token.substring(0, 10) + "...");
-        return { success: false, error: "Échec de la validation anti-spam (Captcha)." };
     }
 
     try {
