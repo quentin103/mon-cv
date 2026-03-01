@@ -470,5 +470,13 @@
         "telegram": "https://t.me/+2250748890216",
         "location": "Abidjan, Angré cité orange",
         "languages": "Français, anglais"
+    },
+    "about": {
+        "title": "À propos de moi",
+        "image": "/me/photo_1.jpg",
+        "passion": "Passionné par la création et l'invention. J'aime concevoir de nouveaux outils, imaginer des solutions élégantes et donner vie à des idées concrètes à travers le code.",
+        "gallery": [
+            "/me/photo_1.jpg"
+        ]
     }
 }
