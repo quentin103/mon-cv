@@ -158,7 +158,7 @@ export default function ContactPage() {
                                                 name="name"
                                                 required
                                                 placeholder="John Doe"
-                                                className="w-full bg-[#050505] border border-white/10 rounded-xl py-3 pl-12 pr-4 text-sm text-white focus:outline-none focus:border-emerald-500/50 focus:ring-1 focus:ring-emerald-500/50 transition-all font-mono"
+                                                className="w-full bg-[#050505] border border-white/10 rounded-xl py-3 pl-12 pr-4  text-white focus:outline-none focus:border-emerald-500/50 focus:ring-1 focus:ring-emerald-500/50 transition-all font-mono"
                                             />
                                         </div>
                                     </div>
@@ -171,7 +171,7 @@ export default function ContactPage() {
                                                 name="email"
                                                 required
                                                 placeholder="john@example.com"
-                                                className="w-full bg-[#050505] border border-white/10 rounded-xl py-3 pl-12 pr-4 text-sm text-white focus:outline-none focus:border-emerald-500/50 focus:ring-1 focus:ring-emerald-500/50 transition-all font-mono"
+                                                className="w-full bg-[#050505] border border-white/10 rounded-xl py-3 pl-12 pr-4  text-white focus:outline-none focus:border-emerald-500/50 focus:ring-1 focus:ring-emerald-500/50 transition-all font-mono"
                                             />
                                         </div>
                                     </div>
@@ -186,7 +186,7 @@ export default function ContactPage() {
                                             name="subject"
                                             required
                                             placeholder="Proposition de projet SaaS..."
-                                            className="w-full bg-[#050505] border border-white/10 rounded-xl py-3 pl-12 pr-4 text-sm text-white focus:outline-none focus:border-emerald-500/50 focus:ring-1 focus:ring-emerald-500/50 transition-all font-mono"
+                                            className="w-full bg-[#050505] border border-white/10 rounded-xl py-3 pl-12 pr-4  text-white focus:outline-none focus:border-emerald-500/50 focus:ring-1 focus:ring-emerald-500/50 transition-all font-mono"
                                         />
                                     </div>
                                 </div>
@@ -200,7 +200,7 @@ export default function ContactPage() {
                                             required
                                             placeholder="Détaillez votre idée ici..."
                                             rows={5}
-                                            className="w-full bg-[#050505] border border-white/10 rounded-xl py-3 pl-12 pr-4 text-sm text-white focus:outline-none focus:border-emerald-500/50 focus:ring-1 focus:ring-emerald-500/50 transition-all font-mono resize-none"
+                                            className="w-full bg-[#050505] border border-white/10 rounded-xl py-3 pl-12 pr-4  text-white focus:outline-none focus:border-emerald-500/50 focus:ring-1 focus:ring-emerald-500/50 transition-all font-mono resize-none"
                                         ></textarea>
                                     </div>
                                 </div>
