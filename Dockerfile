@@ -20,6 +20,10 @@ COPY . .
 # Variables d'environnements nécessaires au build (si existantes)
 ENV NEXT_TELEMETRY_DISABLED=1
 
+# Récupération des variables publiques pour la compilation Next.js
+ARG NEXT_PUBLIC_TURNSTILE_SITE_KEY
+ENV NEXT_PUBLIC_TURNSTILE_SITE_KEY=$NEXT_PUBLIC_TURNSTILE_SITE_KEY
+
 RUN npm run build
 
 # 3. Étape de Production
