@@ -10,7 +10,7 @@ export function FloatingNav() {
 
     return (
         <>
-            <div className="fixed top-6 left-1/2 -translate-x-1/2 w-[calc(100%-4rem)] sm:w-[calc(100%-3rem)] max-w-sm z-50 flex items-center justify-between px-2 py-2 md:px-4 md:py-2 rounded-full bg-[#0D1713]/90 border border-white/10 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.6)]">
+            <div className="fixed top-6 left-1/2 -translate-x-1/2 w-[calc(100%-4rem)] sm:w-[calc(100%-3rem)] max-w-sm z-50 flex items-center justify-between px-2 py-2  rounded-full bg-[#0D1713]/90 border border-white/10 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.6)]">
                 {portfolioData.navigation.map((nav, idx) => {
                     const isActive = pathname === nav.href;
                     return (
