@@ -48,7 +48,7 @@ export function Experience() {
                     className="lg:col-span-2 relative"
                 >
                     {/* Vertical Line */}
-                    <div className="absolute left-[11px] md:left-[19px] top-6 bottom-0 w-px bg-emerald-500/20"></div>
+                    <div className="absolute left-[11px] md:left-[19px] top-6 bottom-0 w-px bg-linear-to-b from-emerald-500/50 via-emerald-500/10 to-transparent"></div>
 
                     <div className="space-y-8 md:space-y-12">
                         {portfolioData.timeline.experiences.map((exp, idx) => (
