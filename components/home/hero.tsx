@@ -16,9 +16,51 @@ export function Hero() {
     return (
         <section className="relative w-full pt-15 sm:pt-20 flex justify-center overflow-hidden bg-[#050505] text-white">
             {/* Abstract Background Effects */}
-            <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff08_1px,transparent_1px),linear-gradient(to_bottom,#ffffff08_1px,transparent_1px)] bg-size-[24px_24px] mask-[radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]"></div>
-            <div className="absolute top-0 left-1/4 w-96 h-96 bg-[#0A5C36]/30 rounded-full blur-[120px] pointer-events-none"></div>
-            <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-[#0A5C36]/20 rounded-full blur-[120px] pointer-events-none"></div>
+            <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden mask-[radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]">
+                {/* Background Grid */}
+                <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff08_1px,transparent_1px),linear-gradient(to_bottom,#ffffff08_1px,transparent_1px)] bg-size-[24px_24px]"></div>
+
+                {/* Animated Circuit Lights - Horizontal */}
+                {[
+                    { top: 4, duration: 6, delay: 0 },
+                    { top: 9, duration: 8, delay: 2 },
+                    { top: 15, duration: 7, delay: 1 },
+                    { top: 22, duration: 9, delay: 3 },
+                    { top: 28, duration: 6, delay: 1.5 },
+                    { top: 35, duration: 8, delay: 0.5 },
+                ].map((beam, i) => (
+                    <motion.div
+                        key={`h-${i}`}
+                        initial={{ left: "-20%", opacity: 0 }}
+                        animate={{ left: "120%", opacity: [0, 0.8, 0.8, 0] }}
+                        transition={{ repeat: Infinity, duration: beam.duration, delay: beam.delay, ease: "linear" }}
+                        className="absolute h-[1px] w-1/4 bg-linear-to-r from-transparent via-emerald-400 to-transparent shadow-[0_0_8px_rgba(16,185,129,0.8)]"
+                        style={{ top: beam.top * 24 }}
+                    />
+                ))}
+
+                {/* Animated Circuit Lights - Vertical */}
+                {[
+                    { left: 10, duration: 7, delay: 0.5 },
+                    { left: 25, duration: 9, delay: 1.5 },
+                    { left: 40, duration: 6, delay: 2 },
+                    { left: 55, duration: 8, delay: 0 },
+                    { left: 70, duration: 7, delay: 3 },
+                    { left: 85, duration: 9, delay: 1 },
+                ].map((beam, i) => (
+                    <motion.div
+                        key={`v-${i}`}
+                        initial={{ top: "-20%", opacity: 0 }}
+                        animate={{ top: "120%", opacity: [0, 0.8, 0.8, 0] }}
+                        transition={{ repeat: Infinity, duration: beam.duration, delay: beam.delay, ease: "linear" }}
+                        className="absolute w-[1px] h-1/4 bg-linear-to-b from-transparent via-emerald-400 to-transparent shadow-[0_0_8px_rgba(16,185,129,0.8)]"
+                        style={{ left: beam.left * 24 }}
+                    />
+                ))}
+            </div>
+
+            <div className="absolute top-0 left-1/4 w-96 h-96 bg-[#0A5C36]/30 rounded-full blur-[120px] pointer-events-none z-0"></div>
+            <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-[#0A5C36]/20 rounded-full blur-[120px] pointer-events-none z-0"></div>
 
             <div className="w-full max-w-7xl mx-auto px-4 md:px-6 pt-15 md:pt-20 z-10">
                 <div className="grid lg:grid-cols-2 gap-2 md:gap-4 items-center">

@@ -103,7 +103,7 @@
                 "id": "backend",
                 "title": "Backend",
                 "icon": "solar:database-bold-duotone",
-                "description": "Conception d'APIs robustes, bases de données SQL ou NoSQL.",
+                "description": "Conception d'APIs, bases de données SQL ou NoSQL.",
                 "skills": [
                     {
                         "name": "Nest.js",
