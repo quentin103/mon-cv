@@ -68,71 +68,59 @@
         "title": "Stack Technique",
         "items": [
             {
-                "id": "frontend",
-                "title": "Frontend",
+                "id": "frontend_frameworks",
+                "title": "Frontend — Frameworks",
                 "icon": "solar:monitor-smartphone-bold-duotone",
-                "description": "Création d'interfaces web fluides, réactives et accessibles.",
+                "description": "Frameworks front-end utilisés pour construire des interfaces réactives.",
                 "skills": [
-                    {
-                        "name": "React",
-                        "icon": "logos:react"
-                    },
-                    {
-                        "name": "Next.js",
-                        "icon": "logos:nextjs-icon"
-                    },
-                    {
-                        "name": "Tailwind",
-                        "icon": "logos:tailwindcss-icon"
-                    },
-                    {
-                        "name": "Nuxt.js",
-                        "icon": "logos:nuxt-icon"
-                    },
-                    {
-                        "name": "Vue.js",
-                        "icon": "logos:vue"
-                    },
-                    {
-                        "name": "Electron Js",
-                        "icon": "logos:electron"
-                    }
+                    { "name": "React", "icon": "logos:react" },
+                    {"name":"React-Native","icon":"logos:react"},
+                    { "name": "Next.js", "icon": "logos:nextjs-icon" },
+                    { "name": "Vue.js", "icon": "logos:vue" },
+                    { "name": "Nuxt.js", "icon": "logos:nuxt-icon" },
+                    { "name": "Angular", "icon": "logos:angular-icon" },
+                    { "name": "Jest", "icon": "logos:jest" }
                 ]
             },
             {
-                "id": "backend",
-                "title": "Backend",
-                "icon": "solar:database-bold-duotone",
-                "description": "Conception d'APIs, bases de données SQL ou NoSQL.",
+                "id": "frontend_tools",
+                "title": "Frontend — Outils",
+                "icon": "solar:monitor-smartphone-bold-duotone",
+                "description": "Outils et bibliothèques front-end pour le design et l'intégration.",
                 "skills": [
-                    {
-                        "name": "Nest.js",
-                        "icon": "logos:nestjs"
-                    },
-                    {
-                        "name": "Laravel",
-                        "icon": "logos:laravel"
-                    },
-                    {
-                        "name": "PostgreSQL",
-                        "icon": "logos:postgresql"
-                    },
-                    {
-                        "name": "MongoDB",
-                        "icon": "logos:mongodb-icon"
-                    },
-                    {
-                        "name": "MySQL",
-                        "icon": "logos:mysql-icon"
-                    },
-                    {
-                        "name": "PHP",
-                        "icon": "logos:php"
-                    },
-                    {
-                        "name": "Python",
-                        "icon": "logos:python"
-                    }
+                    { "name": "Tailwind CSS", "icon": "logos:tailwindcss-icon" },
+                    { "name": "TypeScript", "icon": "devicon:typescript" },
+                    { "name": "Electron", "icon": "logos:electron" },
+                    { "name": "Vite / Webpack", "icon": "simple-icons:vite" },
+                    { "name": "ESLint / Prettier", "icon": "logos:eslint" }
+                ]
+            },
+            {
+                "id": "backend_frameworks",
+                "title": "Backend — Frameworks",
+                "icon": "solar:database-bold-duotone",
+                "description": "Frameworks et runtimes pour le développement backend.",
+                "skills": [
+                    { "name": "Node.js", "icon": "logos:nodejs-icon" },
+                    { "name": "Nest.js", "icon": "logos:nestjs" },
+                    { "name": "Laravel", "icon": "logos:laravel" },
+                    { "name": "FastAPI", "icon": "logos:django" },
+                    { "name": "Python", "icon": "logos:python" },
+                    { "name": "ORMs (TypeORM, Prisma)", "icon": "simple-icons:prisma" }
+                ]
+            },
+            {
+                "id": "databases",
+                "title": "Bases de données",
+                "icon": "solar:database-bold-duotone",
+                "description": "Bases de données relationnelles et NoSQL.",
+                "skills": [
+                    { "name": "PostgreSQL", "icon": "logos:postgresql" },
+                    { "name": "MySQL / MariaDB", "icon": "logos:mysql-icon" },
+                    { "name": "SQLite", "icon": "logos:sqlite" },
+                    { "name": "MongoDB", "icon": "logos:mongodb-icon" },
+                    { "name": "Redis", "icon": "logos:redis" },
+                    { "name": "Firebase", "icon": "logos:firebase-icon" }
                 ]
             },
             {
@@ -141,26 +129,11 @@
                 "icon": "solar:cloud-storage-bold-duotone",
                 "description": "CI/CD, conteneurisation et hébergement cloud moderne.",
                 "skills": [
-                    {
-                        "name": "Docker",
-                        "icon": "logos:docker-icon"
-                    },
-                    {
-                        "name": "Vercel",
-                        "icon": "logos:vercel-icon"
-                    },
-                    {
-                        "name": "Git",
-                        "icon": "logos:git-icon"
-                    },
-                    {
-                        "name": "GitHub",
-                        "icon": "mdi:github"
-                    },
-                    {
-                        "name": "GitLab",
-                        "icon": "logos:gitlab"
-                    }
+                    { "name": "Docker", "icon": "logos:docker-icon" },
+                    { "name": "Vercel", "icon": "logos:vercel-icon" },
+                    { "name": "Process Manager", "icon": "simple-icons:pm2" },
+                    { "name": "Git", "icon": "logos:git-icon" },
+                    {"name":"Railway","icon":"logos:cloudflare-icon"}
                 ]
             },
             {
@@ -169,18 +142,9 @@
                 "icon": "solar:pen-new-round-bold-duotone",
                 "description": "Prototypage Figma et intégration au pixel près.",
                 "skills": [
-                    {
-                        "name": "Figma",
-                        "icon": "logos:figma"
-                    },
-                    {
-                        "name": "Photoshop",
-                        "icon": "logos:adobe-photoshop"
-                    },
-                    {
-                        "name": "Illustrator",
-                        "icon": "logos:adobe-illustrator"
-                    }
+                    { "name": "Figma", "icon": "logos:figma" },
+                    { "name": "Photoshop", "icon": "logos:adobe-photoshop" },
+                    { "name": "Illustrator", "icon": "logos:adobe-illustrator" }
                 ]
             }
         ]
@@ -190,6 +154,35 @@
         "title": "Activités - Projets",
         "githubLink": "https://github.com/",
         "items": [
+            {
+                "id": "project-6",
+                "layout": "large",
+                "title": "Plateforme d'enchères (BETA)",
+                "year": "2026",
+                "description": "Application de vente aux enchères en ligne — gestion des annonces, enchères, et tableaux de bord utilisateur.",
+                "image": "https://images.unsplash.com/photo-1545239351-1141bd82e8a6?auto=format&fit=crop&q=80&w=800",
+                "link": "",
+                "badge": {
+                    "label": "En cours — Bientôt en production",
+                    "style": "pulse"
+                },
+                "categories": [
+                    { "name": "E‑commerce", "active": true },
+                    { "name": "Application web", "active": true },
+                    { "name": "En cours", "active": true }
+                ],
+                "tags": [
+                    "Enchères",
+                    "Offres public/privé"
+                ],
+                "techIcons": [
+                    "devicon:nextjs",
+                    "devicon:react",
+                    "devicon:tailwindcss",
+                    "devicon:nestjs",
+                    "devicon:postgresql"
+                ]
+            },
             {
                 "id": "project-1",
                 "layout": "large",
@@ -371,7 +364,10 @@
                 "company": "MOBISOFT",
                 "period": "2024",
                 "description": [
-                    "Développement des interfaces de la plateforme eAgri et intégration d’API."
+                    "Développement des interfaces de la plateforme eAgri et intégration d’API.",
+                    "Déploiement des applications sur les serveurs de avec Docker et Nginx.",
+                    "Maintenance des applications.",
+                    "Amélioration des performances et de l’expérience utilisateur."
                 ]
             },
             {
@@ -450,6 +446,14 @@
             {
                 "name": "L'électronique",
                 "icon": "solar:tuning-2-bold-duotone"
+            },
+            {
+                "name": "La lecture de BD",
+                "icon": "solar:book-bold-duotone"
+            },
+            {
+                "name": "La photographie",
+                "icon": "solar:camera-bold-duotone"
             }
         ]
     },
@@ -513,6 +517,17 @@
                 "name": "Collègue développeur",
                 "role": "Mobisoft",
                 "content": "Quentin maîtrise vraiment son domaine en front-end. Quand il y a un problème technique sur les interfaces utilisateurs, il trouve vite la solution avec des interfaces propres et rapides."
+            }
+        ,
+            {
+                "name": "Aristide",
+                "role": "Ami développeur",
+                "content": "Travail professionnel et soigné, livré dans les délais. Très satisfait du résultat."
+            },
+            {
+                "name": "Anonyme",
+                "role": "Partenaire",
+                "content": "Expertise technique solide, grande attention aux détails et respect des engagements."
             }
         ]
     }
