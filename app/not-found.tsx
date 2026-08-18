@@ -3,8 +3,11 @@
 import { motion } from "framer-motion";
 import { Icon } from "@iconify/react";
 import Link from "next/link";
+import { useTranslations } from "@/lib/i18n/context";
 
 export default function NotFound() {
+    const t = useTranslations();
+
     return (
         <section className="relative w-full min-h-[80vh] flex items-center justify-center pt-15 sm:pt-25 overflow-hidden bg-[#050505] text-stone-200">
             {/* Abstract Background Effects */}
@@ -21,7 +24,7 @@ export default function NotFound() {
                 >
                     <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-emerald-400 text-xs md:text-sm font-medium backdrop-blur-sm">
                         <Icon icon="solar:danger-triangle-bold-duotone" className="w-4 h-4 text-emerald-400" />
-                        <span>Erreur 404</span>
+                        <span>{t.notFound.badge}</span>
                     </div>
 
                     <h1 className="text-3xl md:text-5xl font-bold tracking-tight text-stone-400 leading-[1.1]">
@@ -29,13 +32,20 @@ export default function NotFound() {
                     </h1>
 
                     <h2 className="text-2xl md:text-3xl font-semibold">
-                        Page introuvable !
+                        {t.notFound.title}
                     </h2>
 
                     <p className="text-base md:text-lg text-stone-400 max-w-lg leading-relaxed font-light mx-auto">
-                        Oups ! Il semble que la page que vous recherchez n&apos;existe pas ou a été déplacée.
-                        Mais ne vous inquiétez pas, vous pouvez retourner à l&apos;accueil pour découvrir mes projets.
+                        {t.notFound.description}
                     </p>
+
+                    <Link
+                        href="/"
+                        className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-white/5 border border-white/10 text-sm font-semibold text-stone-200 hover:text-emerald-300 hover:border-emerald-500/30 transition-colors"
+                    >
+                        <Icon icon="solar:arrow-left-linear" className="w-4 h-4" />
+                        {t.notFound.backHome}
+                    </Link>
                 </motion.div>
             </div>
         </section>

@@ -1,12 +1,15 @@
 "use client";
 
 import { GitHubCalendar } from "react-github-calendar";
+import { useTranslations } from "@/lib/i18n/context";
 
 export default function GithubContributions() {
+    const t = useTranslations();
+
     return (
         <div className="mt-12">
             <h2 className="text-xl font-bold mb-4">
-                Mes contributions GitHub
+                {t.common.githubContributions}
             </h2>
             <GitHubCalendar
                 username="quentin103"

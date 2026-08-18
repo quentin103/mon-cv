@@ -3,7 +3,7 @@
 import { motion, Variants } from "framer-motion";
 import { Icon } from "@iconify/react";
 import Image from "next/image";
-import portfolioData from "@/data/portfolio.json";
+import { usePortfolio, useTranslations } from "@/lib/i18n/context";
 
 const container: Variants = {
     hidden: { opacity: 0 },
@@ -19,6 +19,9 @@ const item: Variants = {
 };
 
 export default function AboutClientPage() {
+    const portfolioData = usePortfolio();
+    const t = useTranslations();
+
     return (
         <main className="w-full min-h-screen bg-[#050505] text-white overflow-x-hidden pt-24 sm:pt-32 pb-20 relative flex justify-center">
             {/* Background Effects */}
@@ -36,9 +39,9 @@ export default function AboutClientPage() {
                     <div>
                         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-[10px] font-semibold uppercase tracking-wider mb-4">
                             <Icon icon="solar:user-bold-duotone" className="w-3.5 h-3.5" />
-                            À propos de moi
+                            {t.about.badge}
                         </div>
-                        <h1 className="text-2xl md:text-4xl font-extrabold tracking-tight text-white mb-2">Faisons plus ample <span className="text-emerald-400">connaissance.</span></h1>
+                        <h1 className="text-2xl md:text-4xl font-extrabold tracking-tight text-white mb-2">{t.about.titleLead} <span className="text-emerald-400">{t.about.titleHighlight}</span></h1>
 
                     </div>
                 </motion.div>
@@ -68,13 +71,13 @@ export default function AboutClientPage() {
                     {/* Simple Text Block (Right side) */}
                     <motion.div variants={item} className="col-span-12 lg:col-span-8 w-full h-full relative group rounded-xl p-px overflow-hidden">
                         <div className="relative z-10 h-full  backdrop-blur-xl rounded-xl p-4 md:p-8 ">
-                            <h3 className="text-2xl md:text-3xl font-bold text-white mb-6">Qui je suis et ce que je fais</h3>
+                            <h3 className="text-2xl md:text-3xl font-bold text-white mb-6">{t.about.heading}</h3>
                             <div className="space-y-6 text-stone-300 leading-relaxed text-lg">
                                 <p>
                                     {portfolioData.about.passion}
                                 </p>
                                 <p>
-                                    Mon objectif est de créer des solutions numériques à la fois performantes et esthétiques. Que ce soit pour structurer une base de données robuste ou concevoir une interface utilisateur fluide, j'aborde chaque projet avec la même rigueur et curiosité.
+                                    {t.about.goal}
                                 </p>
                                 <div className="mt-8 pt-6 border-t border-white/10 flex flex-wrap gap-3">
                                     {portfolioData.timeline.interests.map((interest, idx) => (

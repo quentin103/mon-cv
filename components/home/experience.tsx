@@ -2,7 +2,7 @@
 
 import { Icon } from "@iconify/react";
 import { motion } from "framer-motion";
-import portfolioData from "@/data/portfolio.json";
+import { usePortfolio, useTranslations } from "@/lib/i18n/context";
 
 const container = {
     hidden: { opacity: 0 },
@@ -21,6 +21,9 @@ const itemVariants = {
 };
 
 export function Experience() {
+    const portfolioData = usePortfolio();
+    const t = useTranslations();
+
     return (
         <section className="w-full max-w-7xl mx-auto px-4 md:px-6 pt-12 md:pt-20 relative z-10">
             {/* Header */}
@@ -104,7 +107,7 @@ export function Experience() {
                             <div className="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center">
                                 <Icon icon="solar:diploma-bold-duotone" className="w-5 h-5 text-emerald-400" />
                             </div>
-                            <h3 className="text-xl font-bold text-white">Formation</h3>
+                            <h3 className="text-xl font-bold text-white">{t.common.education}</h3>
                         </div>
                         <div className="space-y-4">
                             {portfolioData.timeline.education.map((edu, idx) => (
@@ -126,7 +129,7 @@ export function Experience() {
                             <div className="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center">
                                 <Icon icon="solar:star-bold-duotone" className="w-5 h-5 text-emerald-400" />
                             </div>
-                            <h3 className="text-xl font-bold text-white">Centres d'intérêt</h3>
+                            <h3 className="text-xl font-bold text-white">{t.common.interests}</h3>
                         </div>
                         <motion.div variants={itemVariants} className="flex flex-wrap gap-3">
                             {portfolioData.timeline.interests.map((interest, idx) => (

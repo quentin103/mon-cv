@@ -1,6 +1,7 @@
 "use server";
 
 import { Resend } from "resend";
+import { defaultLocale, isLocale, type Locale } from "@/lib/i18n/config";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
@@ -29,14 +30,42 @@ async function verifyTurnstileToken(token: string) {
     return data.success;
 }
 
-export async function sendContactEmail(formData: FormData) {
+/** Messages renvoyés au formulaire de contact, dans la langue du visiteur. */
+const actionMessages: Record<Locale, {
+    missingFields: string;
+    sendFailed: string;
+    internalError: string;
+    success: string;
+    subjectFallback: string;
+    subjectPrefix: string;
+}> = {
+    en: {
+        missingFields: "Please fill in the required fields.",
+        sendFailed: "Something went wrong while sending the email.",
+        internalError: "An internal error occurred.",
+        success: "Your message has been sent!",
+        subjectFallback: "Portfolio Contact CTA",
+        subjectPrefix: "New message",
+    },
+    fr: {
+        missingFields: "Veuillez remplir les champs obligatoires.",
+        sendFailed: "Erreur lors de l'envoi de l'e-mail.",
+        internalError: "Une erreur interne s'est produite.",
+        success: "Votre message a bien été envoyé !",
+        subjectFallback: "Contact Portfolio CTA",
+        subjectPrefix: "Nouveau Message",
+    },
+};
+
+export async function sendContactEmail(formData: FormData, locale?: string) {
+    const messages = actionMessages[isLocale(locale) ? locale : defaultLocale];
     const name = formData.get("name") as string;
     const email = formData.get("email") as string;
     const subject = formData.get("subject") as string;
     const message = formData.get("message") as string;
 
     if (!name || !email || !message) {
-        return { success: false, error: "Veuillez remplir les champs obligatoires." };
+        return { success: false, error: messages.missingFields };
     }
 
     try {
@@ -44,18 +73,18 @@ export async function sendContactEmail(formData: FormData) {
             from: "Portfolio <onboarding@resend.dev>", // Changer par votre domaine vérifié sur Resend (ex: no-reply@quentin.dev)
             to: ["koffi.kouamelan.yq@gmail.com"], // Votre adresse e-mail finale
             replyTo: email,
-            subject: `Nouveau Message: ${subject || "Contact Portfolio CTA"}`,
+            subject: `${messages.subjectPrefix}: ${subject || messages.subjectFallback}`,
             text: `Nom: ${name}\nEmail: ${email}\n\nMessage:\n${message}`,
         });
 
         if (error) {
             console.error("Erreur Resend:", error);
-            return { success: false, error: "Erreur lors de l'envoi de l'e-mail." };
+            return { success: false, error: messages.sendFailed };
         }
 
-        return { success: true, message: "Votre message a bien été envoyé !" };
+        return { success: true, message: messages.success };
     } catch (e) {
         console.error("Exception in sendContactEmail", e);
-        return { success: false, error: "Une erreur interne s'est produite." };
+        return { success: false, error: messages.internalError };
     }
 }

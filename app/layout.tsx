@@ -5,6 +5,9 @@ import { metaObject } from "@/lib/site.config";
 import { FloatingNav } from "@/components/floating-nav";
 import { Footer } from "@/components/footer";
 import { PageTransition } from "@/components/page-transition";
+import { LanguageProvider } from "@/lib/i18n/context";
+import { getLocale } from "@/lib/i18n/server";
+import { getDictionary } from "@/lib/i18n/dictionaries";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -21,25 +24,29 @@ const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = metaObject(
-  "Quentinak | Portfolio",
-  undefined,
-  "Bienvenue sur mon Portfolio. Découvrez mes expertises et projets."
-);
+export async function generateMetadata(): Promise<Metadata> {
+  const locale = await getLocale();
+  const t = getDictionary(locale);
+  return metaObject(locale, t.meta.root.title, t.meta.root.description);
+}
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const locale = await getLocale();
+
   return (
-    <html lang="en">
+    <html lang={locale}>
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${plusJakartaSans.variable} bg-[#050505] antialiased relative`}
       >
-        <FloatingNav />
-        <PageTransition>{children}</PageTransition>
-        <Footer />
+        <LanguageProvider initialLocale={locale}>
+          <FloatingNav />
+          <PageTransition>{children}</PageTransition>
+          <Footer />
+        </LanguageProvider>
       </body>
     </html>
   );

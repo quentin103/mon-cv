@@ -1,10 +1,12 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Icon } from "@iconify/react";
-import portfolioData from "@/data/portfolio.json";
+import { usePortfolio, useTranslations } from "@/lib/i18n/context";
 import { TerminalInteractive } from "@/components/home/terminal-interactive";
 
 export function Hero() {
+    const portfolioData = usePortfolio();
+    const t = useTranslations();
     const [activeTab, setActiveTab] = useState('ts');
 
     const tabs = [
@@ -98,7 +100,7 @@ export function Hero() {
                                 <span className="absolute inset-0 bg-linear-to-r from-emerald-500 to-teal-500 rounded-xl opacity-70 group-hover:opacity-100 transition-opacity duration-300 blur-sm"></span>
                                 <div className="relative flex items-center justify-center gap-2 bg-[#050505] group-hover:bg-[#0a0a0a] border border-emerald-500/30 px-6 py-3 md:px-8 md:py-3.5 rounded-xl transition-all duration-300">
                                     <Icon icon="solar:file-download-bold-duotone" className="w-5 h-5 md:w-6 md:h-6 text-emerald-400 group-hover:-translate-y-1 transition-transform" />
-                                    <span className="font-bold text-white text-xs md:text-sm">Télécharger mon CV</span>
+                                    <span className="font-bold text-white text-xs md:text-sm">{t.common.downloadCv}</span>
                                 </div>
                             </a>
 

@@ -3,10 +3,10 @@
 import { Icon } from "@iconify/react";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import portfolioData from "@/data/portfolio.json";
+import { usePortfolio } from "@/lib/i18n/context";
 
 export function Cta() {
-    const { cta } = portfolioData;
+    const { cta } = usePortfolio();
 
     return (
         <section className="relative w-full max-w-7xl mx-auto px-4 md:px-6 pt-10 pb-24 z-10">

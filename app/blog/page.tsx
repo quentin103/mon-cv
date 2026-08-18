@@ -1,15 +1,22 @@
 import { getBlogPosts } from "@/lib/blog";
 import Link from "next/link";
 import { Icon } from "@iconify/react";
+import { Metadata } from "next";
 import { metaObject, siteConfig } from "@/lib/site.config";
+import { getLocale } from "@/lib/i18n/server";
+import { getDictionary } from "@/lib/i18n/dictionaries";
+import { localeTags } from "@/lib/i18n/config";
 
-export const metadata = metaObject(
-    "Blog | " + siteConfig.author,
-    "Mon espace d'écriture : tutoriels, études de cas et pensées sur le développement web, Next.js, et plus encore.",
-    "/blog"
-);
+export async function generateMetadata(): Promise<Metadata> {
+    const locale = await getLocale();
+    const t = getDictionary(locale);
+    return metaObject(locale, `${t.meta.blog.title} | ${siteConfig.author}`, t.meta.blog.description, "/blog");
+}
 
-export default function BlogPage() {
+export default async function BlogPage() {
+    const locale = await getLocale();
+    const t = getDictionary(locale);
+    const localeTag = localeTags[locale];
     const posts = getBlogPosts();
 
     // Fallback if no posts
@@ -19,7 +26,7 @@ export default function BlogPage() {
                 <div className="w-full max-w-7xl mx-auto px-4 md:px-6 pt-15 md:pt-20">
                     <div className="p-8 rounded-2xl border border-white/5 bg-white/5 text-center">
                         <Icon icon="solar:folder-open-bold-duotone" className="w-12 h-12 text-stone-500 mx-auto mb-3" />
-                        <p className="text-stone-400">Aucun article n'a été publié pour le moment.</p>
+                        <p className="text-stone-400">{t.blog.empty}</p>
                     </div>
                 </div>
             </main>
@@ -38,10 +45,10 @@ export default function BlogPage() {
                 <div className="mb-10 md:mb-12 border-b border-white/10 pb-6">
                     <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-emerald-400 text-xs font-medium mb-4">
                         <Icon icon="solar:pen-bold-duotone" className="w-4 h-4 text-emerald-400" />
-                        <span>Digital Garden</span>
+                        <span>{t.blog.badge}</span>
                     </div>
                     <h1 className="text-3xl md:text-4xl font-bold tracking-tight text-white mb-2">
-                        Articles & <span className="text-emerald-400">Ressources</span>
+                        {t.blog.titleLead} <span className="text-emerald-400">{t.blog.titleHighlight}</span>
                     </h1>
                 </div>
 
@@ -55,8 +62,8 @@ export default function BlogPage() {
 
                             <div className="relative z-10 flex flex-col flex-1">
                                 <div className="flex items-center gap-3 mb-6">
-                                    <span className="px-3 py-1 text-xs font-semibold text-emerald-950 bg-emerald-400 rounded-full">{featuredPost.category || 'À la une'}</span>
-                                    <span className="text-stone-500 text-sm font-medium">{new Date(featuredPost.date).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' })}</span>
+                                    <span className="px-3 py-1 text-xs font-semibold text-emerald-950 bg-emerald-400 rounded-full">{featuredPost.category || t.blog.featured}</span>
+                                    <span className="text-stone-500 text-sm font-medium">{new Date(featuredPost.date).toLocaleDateString(localeTag, { day: 'numeric', month: 'long', year: 'numeric' })}</span>
                                 </div>
 
                                 <h2 className="text-2xl md:text-4xl font-bold text-stone-100 group-hover:text-emerald-400 transition-colors mb-6 leading-[1.15]">
@@ -68,7 +75,7 @@ export default function BlogPage() {
                                 </p>
 
                                 <div className="mt-auto flex items-center gap-2 text-emerald-400 font-medium group-hover:gap-4 transition-all">
-                                    <span className="text-sm">Lire l'article</span>
+                                    <span className="text-sm">{t.blog.readArticle}</span>
                                     <Icon icon="solar:arrow-right-linear" className="w-5 h-5" />
                                 </div>
                             </div>
@@ -81,7 +88,7 @@ export default function BlogPage() {
                             <Link href={`/blog/${post.slug}`} key={post.slug} className="group flex flex-col p-6 rounded-2xl bg-[#0d1713]/50 border border-white/5 hover:bg-white/5 transition-all duration-300 flex-1 justify-center">
                                 <div className="flex items-center justify-between mb-3 text-xs text-stone-500 font-medium">
                                     <span className="text-emerald-500/80 uppercase tracking-wider">{post.category || 'Tech'}</span>
-                                    <span>{post.readingTime} read</span>
+                                    <span>{post.readingTime} {t.blog.readSuffix}</span>
                                 </div>
                                 <h3 className="text-xl md:text-2xl font-bold text-stone-200 group-hover:text-emerald-400 transition-colors mb-3 leading-snug">
                                     {post.title}
@@ -100,7 +107,7 @@ export default function BlogPage() {
                         {bottomPosts.map((post) => (
                             <Link href={`/blog/${post.slug}`} key={post.slug} className="group flex flex-col p-6 rounded-2xl bg-transparent border border-white/5 hover:bg-white/5 hover:border-emerald-500/20 transition-all duration-300">
                                 <div className="mb-4">
-                                    <span className="text-xs text-stone-500 font-medium">{new Date(post.date).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' })}</span>
+                                    <span className="text-xs text-stone-500 font-medium">{new Date(post.date).toLocaleDateString(localeTag, { day: 'numeric', month: 'long', year: 'numeric' })}</span>
                                 </div>
                                 <h3 className="text-lg md:text-xl font-bold text-stone-200 group-hover:text-emerald-400 transition-colors mb-3 leading-snug">
                                     {post.title}

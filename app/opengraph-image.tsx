@@ -1,5 +1,7 @@
 import { ImageResponse } from 'next/og'
 import { siteConfig } from '@/lib/site.config'
+import { getLocale } from '@/lib/i18n/server'
+import { getDictionary } from '@/lib/i18n/dictionaries'
 
 export const runtime = 'edge'
 
@@ -12,6 +14,9 @@ export const size = {
 export const contentType = 'image/png'
 
 export default async function Image() {
+    // Les crawlers n'envoient pas de cookie : l'image retombe donc sur l'anglais par défaut.
+    const t = getDictionary(await getLocale())
+
     return new ImageResponse(
         (
             <div
@@ -83,7 +88,7 @@ export default async function Image() {
                         margin: 0,
                         maxWidth: '800px'
                     }}>
-                        Développeur <span style={{ color: '#34d399', marginLeft: '10px', marginRight: '10px' }}>Full-Stack</span> & UI/UX
+                        {t.openGraph.tagline}<span style={{ color: '#34d399', marginLeft: '10px', marginRight: '10px' }}>Full-Stack</span>& UI/UX
                     </p>
 
                     <p style={{

@@ -2,17 +2,31 @@
 
 import { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
+import { useLocale, useTranslations } from "@/lib/i18n/context";
 
 export function TerminalInteractive() {
+    const t = useTranslations();
+    const locale = useLocale();
     const [history, setHistory] = useState<{ command: string; output: React.ReactNode | string }[]>([
         {
             command: "",
-            output: "Bienvenue sur le terminal de Quentin ! Tapez 'help' pour voir les commandes disponibles."
+            output: t.terminal.welcome
         }
     ]);
     const [input, setInput] = useState("");
     const bottomRef = useRef<HTMLDivElement>(null);
     const inputRef = useRef<HTMLInputElement>(null);
+
+    // Le changement de langue relance le terminal : l'historique passé, écrit dans
+    // l'ancienne langue, n'aurait plus de sens mélangé aux nouvelles sorties.
+    // On ignore le premier passage : un setState au montage interrompt l'animation
+    // d'entrée de l'AnimatePresence qui enveloppe cet onglet.
+    const renderedLocale = useRef(locale);
+    useEffect(() => {
+        if (renderedLocale.current === locale) return;
+        renderedLocale.current = locale;
+        setHistory([{ command: "", output: t.terminal.welcome }]);
+    }, [locale, t]);
 
     // Auto-scroll to bottom but only within the terminal container
     useEffect(() => {
@@ -36,16 +50,16 @@ export function TerminalInteractive() {
             case trimmedCmd === "help":
                 output = (
                     <div className="flex flex-col gap-1">
-                        <div><span className="text-emerald-400">help</span>    - Affiche cette liste de commandes</div>
-                        <div><span className="text-emerald-400">ls</span>      - Liste les fichiers et dossiers disponibles</div>
-                        <div><span className="text-emerald-400">cat</span>     - Affiche le contenu d'un fichier (ex: cat about.txt)</div>
-                        <div><span className="text-emerald-400">about</span>   - Qui suis-je ?</div>
-                        <div><span className="text-emerald-400">skills</span>  - Voir ma stack technique principale</div>
-                        <div><span className="text-emerald-400">contact</span> - Comment me joindre</div>
-                        <div><span className="text-emerald-400">whoami</span>  - Affiche l'utilisateur actuel</div>
-                        <div><span className="text-emerald-400">date</span>    - Affiche la date et l'heure système</div>
-                        <div><span className="text-emerald-400">clear</span>   - Efface le terminal</div>
-                        <div><span className="text-emerald-400">sudo</span>    - ???</div>
+                        <div><span className="text-emerald-400">help</span>    - {t.terminal.help.help}</div>
+                        <div><span className="text-emerald-400">ls</span>      - {t.terminal.help.ls}</div>
+                        <div><span className="text-emerald-400">cat</span>     - {t.terminal.help.cat}</div>
+                        <div><span className="text-emerald-400">about</span>   - {t.terminal.help.about}</div>
+                        <div><span className="text-emerald-400">skills</span>  - {t.terminal.help.skills}</div>
+                        <div><span className="text-emerald-400">contact</span> - {t.terminal.help.contact}</div>
+                        <div><span className="text-emerald-400">whoami</span>  - {t.terminal.help.whoami}</div>
+                        <div><span className="text-emerald-400">date</span>    - {t.terminal.help.date}</div>
+                        <div><span className="text-emerald-400">clear</span>   - {t.terminal.help.clear}</div>
+                        <div><span className="text-emerald-400">sudo</span>    - {t.terminal.help.sudo}</div>
                     </div>
                 );
                 break;
@@ -61,10 +75,10 @@ export function TerminalInteractive() {
                 );
                 break;
             case trimmedCmd === "about" || trimmedCmd === "cat about.txt":
-                output = "Hello ! Je suis Quentin, un développeur Full-Stack & UI/UX basé à Abidjan. Je suis passionné par la création d'interfaces fluides et de systèmes robustes.";
+                output = t.terminal.about;
                 break;
             case trimmedCmd === "skills" || trimmedCmd === "cat stack.json":
-                output = "► Frontend: React, Next.js, Vue, Tailwind\n► Backend: Nest.js, Python, PostgreSQL\n► DevOps: Docker, Vercel, Git";
+                output = t.terminal.skills;
                 break;
             case trimmedCmd === "contact":
                 output = (
@@ -90,13 +104,13 @@ export function TerminalInteractive() {
                 setHistory([]);
                 return;
             case trimmedCmd === "sudo":
-                output = "nice try... mais vous n'avez pas les droits root ici ! (;";
+                output = t.terminal.sudo;
                 break;
             case trimmedCmd === "":
                 output = "";
                 break;
             default:
-                output = <span className="text-red-400">command not found: {trimmedCmd}. Tapez 'help' pour la liste.</span>;
+                output = <span className="text-red-400">{t.terminal.notFound}: {trimmedCmd}. {t.terminal.notFoundHint}</span>;
         }
 
         setHistory(prev => [...prev, { command: cmd, output }]);

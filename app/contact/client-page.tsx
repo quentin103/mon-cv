@@ -4,10 +4,13 @@ import { useState, useRef } from "react";
 import { motion } from "framer-motion";
 import { Icon } from "@iconify/react";
 import { Turnstile } from "@marsidev/react-turnstile";
-import portfolioData from "@/data/portfolio.json";
+import { usePortfolio, useTranslations, useLanguage } from "@/lib/i18n/context";
 import { sendContactEmail } from "./actions";
 
 export default function ContactPage() {
+    const portfolioData = usePortfolio();
+    const t = useTranslations();
+    const { locale } = useLanguage();
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [status, setStatus] = useState<{ type: 'success' | 'error' | null, message: string }>({ type: null, message: '' });
     const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
@@ -21,15 +24,15 @@ export default function ContactPage() {
         const formData = new FormData(e.currentTarget);
 
         try {
-            const result = await sendContactEmail(formData);
+            const result = await sendContactEmail(formData, locale);
             if (result.success) {
-                setStatus({ type: 'success', message: result.message || 'Votre message a bien été envoyé !' });
+                setStatus({ type: 'success', message: result.message || t.contact.form.successFallback });
                 formRef.current?.reset();
             } else {
-                setStatus({ type: 'error', message: result.error || 'Erreur lors de l\'envoi.' });
+                setStatus({ type: 'error', message: result.error || t.contact.form.errorFallback });
             }
         } catch (error) {
-            setStatus({ type: 'error', message: 'Une erreur inattendue s\'est produite.' });
+            setStatus({ type: 'error', message: t.contact.form.unexpectedError });
         } finally {
             setIsSubmitting(false);
         }
@@ -57,13 +60,13 @@ export default function ContactPage() {
                         <div>
                             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-[10px] font-semibold uppercase tracking-wider mb-4">
                                 <Icon icon="solar:letter-bold-duotone" className="w-3.5 h-3.5" />
-                                Contact
+                                {t.contact.badge}
                             </div>
                             <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight text-white mb-4 leading-tight">
-                                Donnons vie à vos <span className="text-emerald-400">idées.</span>
+                                {t.contact.titleLead} <span className="text-emerald-400">{t.contact.titleHighlight}</span>
                             </h1>
                             <p className="text-stone-400 text-sm md:text-base leading-relaxed">
-                                Que ce soit pour une opportunité professionnelle, un projet de création d'application web, ou simplement pour échanger sur le développement... je suis à votre écoute !
+                                {t.contact.intro}
                             </p>
                         </div>
 
@@ -81,7 +84,7 @@ export default function ContactPage() {
                                             <Icon icon="solar:phone-calling-bold-duotone" className="w-6 h-6" />
                                         </div>
                                         <div>
-                                            <h3 className="text-stone-400 font-medium text-xs font-mono mb-1">Téléphone</h3>
+                                            <h3 className="text-stone-400 font-medium text-xs font-mono mb-1">{t.contact.phone}</h3>
                                             <p className="text-white font-semibold text-sm">{portfolioData.contact.phone}</p>
                                         </div>
                                     </div>
@@ -122,12 +125,12 @@ export default function ContactPage() {
                             >
                                 <div className="p-5 rounded-3xl bg-white/2 border border-white/5 hover:bg-white/5 transition-colors group">
                                     <Icon icon="solar:map-point-bold-duotone" className="w-8 h-8 text-stone-500 mb-3 group-hover:text-emerald-400 transition-colors" />
-                                    <h3 className="text-stone-400 font-medium text-xs font-mono mb-1">Localisation</h3>
+                                    <h3 className="text-stone-400 font-medium text-xs font-mono mb-1">{t.contact.location}</h3>
                                     <p className="text-white font-semibold text-sm">{portfolioData.contact.location}</p>
                                 </div>
                                 <div className="p-5 rounded-3xl bg-white/2 border border-white/5 hover:bg-white/5 transition-colors group">
                                     <Icon icon="solar:global-bold-duotone" className="w-8 h-8 text-stone-500 mb-3 group-hover:text-emerald-400 transition-colors" />
-                                    <h3 className="text-stone-400 font-medium text-xs font-mono mb-1">Langues</h3>
+                                    <h3 className="text-stone-400 font-medium text-xs font-mono mb-1">{t.contact.languages}</h3>
                                     <p className="text-white font-semibold text-sm capitalize">{portfolioData.contact.languages}</p>
                                 </div>
                             </motion.div>
@@ -148,27 +151,27 @@ export default function ContactPage() {
                             <form ref={formRef} className="space-y-6" onSubmit={handleSubmit}>
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                     <div className="space-y-2">
-                                        <label className="text-xs font-mono text-stone-400 pl-1">Nom complet</label>
+                                        <label className="text-xs font-mono text-stone-400 pl-1">{t.contact.form.nameLabel}</label>
                                         <div className="relative">
                                             <Icon icon="solar:user-bold-duotone" className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-stone-500" />
                                             <input
                                                 type="text"
                                                 name="name"
                                                 required
-                                                placeholder="John Doe"
+                                                placeholder={t.contact.form.namePlaceholder}
                                                 className="w-full bg-[#050505] border border-white/10 rounded-xl py-3 pl-12 pr-4  text-white focus:outline-none focus:border-emerald-500/50 focus:ring-1 focus:ring-emerald-500/50 transition-all font-mono"
                                             />
                                         </div>
                                     </div>
                                     <div className="space-y-2">
-                                        <label className="text-xs font-mono text-stone-400 pl-1">Adresse Email</label>
+                                        <label className="text-xs font-mono text-stone-400 pl-1">{t.contact.form.emailLabel}</label>
                                         <div className="relative">
                                             <Icon icon="solar:letter-bold-duotone" className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-stone-500" />
                                             <input
                                                 type="email"
                                                 name="email"
                                                 required
-                                                placeholder="john@example.com"
+                                                placeholder={t.contact.form.emailPlaceholder}
                                                 className="w-full bg-[#050505] border border-white/10 rounded-xl py-3 pl-12 pr-4  text-white focus:outline-none focus:border-emerald-500/50 focus:ring-1 focus:ring-emerald-500/50 transition-all font-mono"
                                             />
                                         </div>
@@ -176,27 +179,27 @@ export default function ContactPage() {
                                 </div>
 
                                 <div className="space-y-2">
-                                    <label className="text-xs font-mono text-stone-400 pl-1">Sujet</label>
+                                    <label className="text-xs font-mono text-stone-400 pl-1">{t.contact.form.subjectLabel}</label>
                                     <div className="relative">
                                         <Icon icon="solar:pen-bold-duotone" className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-stone-500" />
                                         <input
                                             type="text"
                                             name="subject"
                                             required
-                                            placeholder="Proposition de projet SaaS..."
+                                            placeholder={t.contact.form.subjectPlaceholder}
                                             className="w-full bg-[#050505] border border-white/10 rounded-xl py-3 pl-12 pr-4  text-white focus:outline-none focus:border-emerald-500/50 focus:ring-1 focus:ring-emerald-500/50 transition-all font-mono"
                                         />
                                     </div>
                                 </div>
 
                                 <div className="space-y-2">
-                                    <label className="text-xs font-mono text-stone-400 pl-1">Message</label>
+                                    <label className="text-xs font-mono text-stone-400 pl-1">{t.contact.form.messageLabel}</label>
                                     <div className="relative">
                                         <Icon icon="solar:document-text-bold-duotone" className="absolute left-4 top-4 w-5 h-5 text-stone-500" />
                                         <textarea
                                             name="message"
                                             required
-                                            placeholder="Détaillez votre idée ici..."
+                                            placeholder={t.contact.form.messagePlaceholder}
                                             rows={5}
                                             className="w-full bg-[#050505] border border-white/10 rounded-xl py-3 pl-12 pr-4  text-white focus:outline-none focus:border-emerald-500/50 focus:ring-1 focus:ring-emerald-500/50 transition-all font-mono resize-none"
                                         ></textarea>
@@ -205,11 +208,11 @@ export default function ContactPage() {
 
                                 <div className="w-full flex justify-center py-2 min-h-[65px]">
                                     {siteKey ? (
-                                        <Turnstile siteKey={siteKey} options={{ theme: 'dark' }} onSuccess={(token) => setTurnstileToken(token)} />
+                                        <Turnstile siteKey={siteKey} options={{ theme: 'dark', language: locale }} onSuccess={(token) => setTurnstileToken(token)} />
                                     ) : (
                                         <div className="text-red-400 text-xs border border-red-500/20 bg-red-500/10 p-3 rounded-xl flex items-center gap-2">
                                             <Icon icon="solar:danger-triangle-bold-duotone" className="w-4 h-4 shrink-0" />
-                                            Configuration manquante : NEXT_PUBLIC_TURNSTILE_SITE_KEY introuvable.
+                                            {t.contact.form.captchaMissingConfig}
                                         </div>
                                     )}
                                 </div>
@@ -239,10 +242,10 @@ export default function ContactPage() {
                                         )}
                                         <span className="font-bold text-white text-sm">
                                             {!turnstileToken
-                                                ? 'Validation Captcha requise...'
+                                                ? t.contact.form.captchaRequired
                                                 : isSubmitting
-                                                    ? 'Envoi en cours...'
-                                                    : 'Envoyer le message'}
+                                                    ? t.contact.form.submitting
+                                                    : t.contact.form.submit}
                                         </span>
                                     </div>
                                 </button>

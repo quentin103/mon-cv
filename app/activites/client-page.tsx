@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Icon } from "@iconify/react";
-import portfolioData from "@/data/portfolio.json";
+import { usePortfolio, useTranslations } from "@/lib/i18n/context";
 import GithubContributions from "@/components/GithubContributions";
 
 const container = {
@@ -22,7 +22,8 @@ const itemVariants = {
 };
 
 export default function ProjetsPage() {
-    const { projects } = portfolioData;
+    const { projects } = usePortfolio();
+    const t = useTranslations();
 
     return (
         <main className="w-full bg-[#050505] text-white overflow-x-hidden pt-15 sm:pt-20 relative flex justify-center">
@@ -47,7 +48,7 @@ export default function ProjetsPage() {
                         </div>
                         <h1 className="text-2xl md:text-4xl font-extrabold tracking-tight text-white mb-2">{projects.title}</h1>
                         <p className="text-white max-w-xl mt-4 text-sm md:text-base">
-                            Une sélection de mes travaux récents. Parcourez la liste pour découvrir les interfaces, architectures techniques et fonctionnalités que j'ai pu développer.
+                            {t.projects.intro}
                         </p>
                     </div>
                 </motion.div>

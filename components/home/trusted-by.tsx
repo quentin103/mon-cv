@@ -2,10 +2,10 @@
 
 import { Icon } from "@iconify/react";
 import { motion } from "framer-motion";
-import portfolioData from "@/data/portfolio.json";
+import { usePortfolio } from "@/lib/i18n/context";
 
 export function TrustedBy() {
-    const { trustedBy } = portfolioData;
+    const { trustedBy } = usePortfolio();
 
     return (
         <section className="w-full max-w-7xl mx-auto px-4 md:px-6 py-10 md:py-16 relative z-10">

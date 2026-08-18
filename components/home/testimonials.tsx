@@ -3,10 +3,11 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Icon } from "@iconify/react";
-import portfolioData from "@/data/portfolio.json";
+import { usePortfolio, useTranslations } from "@/lib/i18n/context";
 
 export function Testimonials() {
-    const { testimonials } = portfolioData;
+    const { testimonials } = usePortfolio();
+    const t = useTranslations();
     const [currentIndex, setCurrentIndex] = useState(0);
     const [direction, setDirection] = useState(0);
     const [isHovered, setIsHovered] = useState(false);
@@ -118,7 +119,7 @@ export function Testimonials() {
                     <button
                         onClick={handlePrev}
                         className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-2 md:-translate-x-12 w-10 h-10 md:w-12 md:h-12 flex items-center justify-center rounded-full bg-white/5 border border-white/10 text-stone-400 hover:text-emerald-400 hover:bg-white/10 hover:border-emerald-500/30 transition-all z-20"
-                        aria-label="Témoignage précédent"
+                        aria-label={t.testimonials.previous}
                     >
                         <Icon icon="solar:alt-arrow-left-linear" className="w-5 h-5 md:w-6 md:h-6" />
                     </button>
@@ -126,7 +127,7 @@ export function Testimonials() {
                     <button
                         onClick={handleNext}
                         className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-2 md:translate-x-12 w-10 h-10 md:w-12 md:h-12 flex items-center justify-center rounded-full bg-white/5 border border-white/10 text-stone-400 hover:text-emerald-400 hover:bg-white/10 hover:border-emerald-500/30 transition-all z-20"
-                        aria-label="Témoignage suivant"
+                        aria-label={t.testimonials.next}
                     >
                         <Icon icon="solar:alt-arrow-right-linear" className="w-5 h-5 md:w-6 md:h-6" />
                     </button>
@@ -144,7 +145,7 @@ export function Testimonials() {
                                     ? "w-6 bg-emerald-400"
                                     : "w-1.5 bg-white/20 hover:bg-white/40"
                                     }`}
-                                aria-label={`Aller au témoignage ${idx + 1}`}
+                                aria-label={`${t.testimonials.goTo} ${idx + 1}`}
                             />
                         ))}
                     </div>

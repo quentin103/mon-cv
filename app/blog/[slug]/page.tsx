@@ -4,6 +4,9 @@ import { MDXRemote } from "next-mdx-remote/rsc";
 import Link from "next/link";
 import { Icon } from "@iconify/react";
 import { Metadata } from "next";
+import { getLocale } from "@/lib/i18n/server";
+import { getDictionary } from "@/lib/i18n/dictionaries";
+import { localeTags } from "@/lib/i18n/config";
 
 type Props = {
     params: Promise<{ slug: string }>;
@@ -22,7 +25,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const post = getPostBySlug(resolvedParams.slug);
 
     if (!post) {
-        return { title: 'Article introuvable' };
+        return { title: getDictionary(await getLocale()).blog.notFoundTitle };
     }
 
     return {
@@ -59,6 +62,8 @@ const mdxComponents = {
 
 export default async function BlogPostPage({ params }: Props) {
     const resolvedParams = await params;
+    const locale = await getLocale();
+    const t = getDictionary(locale);
     const post = getPostBySlug(resolvedParams.slug);
 
     if (!post) {
@@ -75,7 +80,7 @@ export default async function BlogPostPage({ params }: Props) {
                     className="inline-flex items-center gap-2 text-sm text-stone-400 hover:text-emerald-400 transition-colors mb-8 sm:mb-12 font-medium"
                 >
                     <Icon icon="solar:arrow-left-linear" className="w-5 h-5" />
-                    <span>Retour aux articles</span>
+                    <span>{t.blog.backToArticles}</span>
                 </Link>
 
                 {/* Header */}
@@ -87,7 +92,7 @@ export default async function BlogPostPage({ params }: Props) {
                     <div className="flex flex-wrap items-center gap-4 text-xs md:text-sm text-stone-500 mb-6">
                         <span className="flex items-center gap-1.5">
                             <Icon icon="solar:calendar-bold-duotone" className="w-4 h-4 md:w-5 md:h-5 text-emerald-500/70" />
-                            {new Date(post.frontmatter.date).toLocaleDateString('fr-FR', {
+                            {new Date(post.frontmatter.date).toLocaleDateString(localeTags[locale], {
                                 day: 'numeric',
                                 month: 'long',
                                 year: 'numeric'

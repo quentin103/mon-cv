@@ -2,7 +2,7 @@
 
 import { Icon } from "@iconify/react";
 import { motion } from "framer-motion";
-import portfolioData from "@/data/portfolio.json";
+import { usePortfolio } from "@/lib/i18n/context";
 
 const container = {
     hidden: { opacity: 0 },
@@ -21,6 +21,8 @@ const item = {
 };
 
 export function Expertise() {
+    const portfolioData = usePortfolio();
+
     return (
         <section className="w-full max-w-7xl mx-auto px-4 md:px-6 py-12 md:py-20 relative z-10">
             <motion.div
