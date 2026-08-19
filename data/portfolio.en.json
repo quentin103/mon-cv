@@ -155,6 +155,38 @@
         "githubLink": "https://github.com/",
         "items": [
             {
+                "id": "project-7",
+                "layout": "large",
+                "title": "Rekolt Web App (BETA)",
+                "year": "2026",
+                "description": "Agronomic SaaS platform and marketplace connecting producers, buyers, distributors, sellers, carriers and advisors, with a built-in AI agronomy assistant and community alerts.",
+                "image": "https://images.unsplash.com/photo-1625246333195-78d9c38ad449?auto=format&fit=crop&q=80&w=800",
+                "link": "",
+                "badge": {
+                    "label": "In progress — Shipping soon",
+                    "style": "pulse"
+                },
+                "categories": [
+                    { "name": "SaaS", "active": true },
+                    { "name": "Marketplace", "active": true },
+                    { "name": "In progress", "active": true }
+                ],
+                "tags": [
+                    "Agriculture",
+                    "AI assistant",
+                    "Role-based dashboards",
+                    "Subscriptions"
+                ],
+                "techIcons": [
+                    "devicon:nextjs",
+                    "devicon:react",
+                    "devicon:tailwindcss",
+                    "devicon:typescript",
+                    "simple-icons:shadcnui",
+                    "simple-icons:framer"
+                ]
+            },
+            {
                 "id": "project-6",
                 "layout": "large",
                 "title": "Auction Platform (BETA)",
@@ -167,7 +199,7 @@
                     "style": "pulse"
                 },
                 "categories": [
-                    { "name": "E‑commerce", "active": true },
+                    { "name": "Marketplace", "active": true },
                     { "name": "Web app", "active": true },
                     { "name": "In progress", "active": true }
                 ],

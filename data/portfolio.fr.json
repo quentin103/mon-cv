@@ -155,6 +155,38 @@
         "githubLink": "https://github.com/",
         "items": [
             {
+                "id": "project-7",
+                "layout": "large",
+                "title": "Rekolt Web App (BETA)",
+                "year": "2026",
+                "description": "Plateforme agronomique SaaS et marketplace reliant producteurs, acheteurs, distributeurs, vendeurs, transporteurs et conseillers, avec assistant IA agronomique et alertes communautaires.",
+                "image": "https://images.unsplash.com/photo-1625246333195-78d9c38ad449?auto=format&fit=crop&q=80&w=800",
+                "link": "",
+                "badge": {
+                    "label": "En cours — Bientôt en production",
+                    "style": "pulse"
+                },
+                "categories": [
+                    { "name": "SaaS", "active": true },
+                    { "name": "Marketplace", "active": true },
+                    { "name": "En cours", "active": true }
+                ],
+                "tags": [
+                    "Agriculture",
+                    "Assistant IA",
+                    "Tableaux de bord métiers",
+                    "Abonnements"
+                ],
+                "techIcons": [
+                    "devicon:nextjs",
+                    "devicon:react",
+                    "devicon:tailwindcss",
+                    "devicon:typescript",
+                    "simple-icons:shadcnui",
+                    "simple-icons:framer"
+                ]
+            },
+            {
                 "id": "project-6",
                 "layout": "large",
                 "title": "Plateforme d'enchères (BETA)",
@@ -167,7 +199,7 @@
                     "style": "pulse"
                 },
                 "categories": [
-                    { "name": "E‑commerce", "active": true },
+                    { "name": "Marketplace", "active": true },
                     { "name": "Application web", "active": true },
                     { "name": "En cours", "active": true }
                 ],

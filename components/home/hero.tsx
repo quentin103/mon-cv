@@ -80,7 +80,7 @@ export function Hero() {
                             <span>{portfolioData.hero.codeSnippet.statement}</span>
                         </div>
 
-                        <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-[1.1]">
+                        <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-white leading-[1.1]">
                             {portfolioData.hero.title.part1} <br />
                             <span className="text-emerald-400">{portfolioData.hero.title.highlight}</span> {portfolioData.hero.title.part2}
                         </h1>
