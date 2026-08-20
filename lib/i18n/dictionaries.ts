@@ -11,6 +11,7 @@ const en = {
     common: {
         downloadCv: "Download my CV",
         education: "Education",
+        languages: "Languages",
         interests: "Interests",
         githubContributions: "My GitHub contributions",
         footer: "Built with passion using Next.js & Tailwind CSS.",
@@ -178,6 +179,7 @@ const fr: Dictionary = {
     common: {
         downloadCv: "Télécharger mon CV",
         education: "Formation",
+        languages: "Langues",
         interests: "Centres d'intérêt",
         githubContributions: "Mes contributions GitHub",
         footer: "Construit avec passion en Next.js & Tailwind CSS.",

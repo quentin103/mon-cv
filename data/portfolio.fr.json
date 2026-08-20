@@ -462,6 +462,16 @@
                 "period": "2016 - 2017"
             }
         ],
+        "languages": [
+            {
+                "name": "Français",
+                "level": 100
+            },
+            {
+                "name": "Anglais",
+                "level": 45
+            }
+        ],
         "interests": [
             {
                 "name": "La musique",

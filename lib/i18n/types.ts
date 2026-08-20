@@ -100,6 +100,12 @@ export type EducationEntry = {
     period: string;
 };
 
+export type Language = {
+    name: string;
+    /** Niveau de maîtrise, en pourcentage (0-100). */
+    level: number;
+};
+
 export type Interest = {
     name: string;
     icon: string;
@@ -110,6 +116,7 @@ export type Timeline = {
     title: string;
     experiences: ExperienceEntry[];
     education: EducationEntry[];
+    languages: Language[];
     interests: Interest[];
 };
 

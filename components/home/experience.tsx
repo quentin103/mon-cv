@@ -20,6 +20,16 @@ const itemVariants = {
     show: { opacity: 1, y: 0, transition: { type: "spring" as const, stiffness: 50 } }
 };
 
+// Anneau de progression : rayon et circonférence servent au tracé SVG et au calcul
+// du strokeDashoffset. Le remplissage est volontairement statique — animer l'anneau
+// via des variants force son état initial (anneau vide) en style inline, et l'anneau
+// reste bloqué à 0 % dès que l'animation ne démarre pas. La carte, elle, garde son
+// animation d'entrée via itemVariants.
+const RING_RADIUS = 42;
+const RING_CIRCUMFERENCE = 2 * Math.PI * RING_RADIUS;
+
+const ringOffset = (level: number) => RING_CIRCUMFERENCE * (1 - level / 100);
+
 export function Experience() {
     const portfolioData = usePortfolio();
     const t = useTranslations();
@@ -118,6 +128,57 @@ export function Experience() {
                                         <Icon icon="solar:calendar-bold-duotone" className="w-3 h-3" />
                                         {edu.period}
                                     </div>
+                                </motion.div>
+                            ))}
+                        </div>
+                    </div>
+
+                    {/* Languages */}
+                    <div>
+                        <div className="flex items-center gap-3 mb-6">
+                            <div className="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center">
+                                <Icon icon="solar:global-bold-duotone" className="w-5 h-5 text-emerald-400" />
+                            </div>
+                            <h3 className="text-xl font-bold text-white">{t.common.languages}</h3>
+                        </div>
+                        <div className="grid grid-cols-2 gap-4">
+                            {portfolioData.timeline.languages.map((language, idx) => (
+                                <motion.div
+                                    key={idx}
+                                    variants={itemVariants}
+                                    className="p-5 rounded-2xl bg-white/2 border border-white/5 hover:bg-white/5 hover:border-emerald-500/30 transition-colors flex flex-col items-center gap-3"
+                                >
+                                    <div
+                                        className="relative w-20 h-20"
+                                        role="img"
+                                        aria-label={`${language.name} : ${language.level}%`}
+                                    >
+                                        <svg viewBox="0 0 100 100" className="w-full h-full -rotate-90">
+                                            <circle
+                                                cx="50"
+                                                cy="50"
+                                                r={RING_RADIUS}
+                                                fill="none"
+                                                strokeWidth="8"
+                                                className="stroke-white/10"
+                                            />
+                                            <circle
+                                                cx="50"
+                                                cy="50"
+                                                r={RING_RADIUS}
+                                                fill="none"
+                                                strokeWidth="8"
+                                                strokeLinecap="round"
+                                                className="stroke-emerald-400 drop-shadow-[0_0_6px_rgba(16,185,129,0.5)]"
+                                                strokeDasharray={RING_CIRCUMFERENCE}
+                                                strokeDashoffset={ringOffset(language.level)}
+                                            />
+                                        </svg>
+                                        <span className="absolute inset-0 flex items-center justify-center text-sm font-bold font-mono text-white">
+                                            {language.level}%
+                                        </span>
+                                    </div>
+                                    <span className="text-sm font-medium text-stone-200">{language.name}</span>
                                 </motion.div>
                             ))}
                         </div>
